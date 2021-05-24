@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "kak-vyglyadit-solevoj-narkoman.jpg.pagespeed.ce.zS3Gc44bOE.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
