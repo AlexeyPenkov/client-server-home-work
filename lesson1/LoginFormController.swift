@@ -204,67 +204,67 @@ class LoginFormController: UIViewController {
     func firstInitial() {
         
         //var userFoto = UserFoto(photo: UIImage(named: "foto1_1")!, countOfLike: 0, countOfDislike: 0)
-        var imArray = getArrayPhotoUser(array: [UIImage(named: "foto1_1")!, UIImage(named: "foto1_2")!])
-        
-        //imArray.append(userFoto)
-        
-        //userFoto.photo = UIImage(named: "foto1_2")!
-        //imArray.append(userFoto)
-        
-        let user1 = User(name: "Митрич", age: "45", avatar: UIImage(named: "mitrichAvatar"), photoArray: imArray)
-        
-        imArray = getArrayPhotoUser(array: [UIImage(named: "foto2_1")!, UIImage(named: "foto2_2")!])
-        
-//        userFoto.photo = UIImage(named: "foto2_1")!
-//        imArray.append(userFoto)
-//
-//        userFoto.photo = UIImage(named: "foto2_2")!
-//        imArray.append(userFoto)
-        
-        let user2 = User(name: "Валера", age: "28", avatar: UIImage(named: "avatar2"), photoArray: imArray)
-        
-        imArray = getArrayPhotoUser(array: [UIImage(named: "foto3_1")!])
-        
-//        imArray.removeAll()
-//
-//        userFoto.photo = UIImage(named: "foto3_1")!
-//        imArray.append(userFoto)
-        
-        
-        let user3 = User(name: "Эдик", age: "32", avatar: UIImage(named: "avatar3"), photoArray: imArray)
-        
-        imArray = getArrayPhotoUser(array: [UIImage(named: "valdemar")!])
-        let user4 = User(name: "Вальдемар", age: "21", avatar: UIImage(named: "valdemar"), photoArray: imArray)
-        
-        imArray = getArrayPhotoUser(array: [UIImage(named: "drugsman1")!])
-        let user5 = User(name: "Павлик", age: "50", avatar: UIImage(named: "drugsman1"), photoArray: imArray)
-        
-        imArray = getArrayPhotoUser(array: [UIImage(named: "drugsman2")!])
-        let user6 = User(name: "Петрович", age: "32", avatar: UIImage(named: "drugsman2"), photoArray: imArray)
-        
-        imArray = getArrayPhotoUser(array: [UIImage(named: "drugsman3")!])
-        let user7 = User(name: "Жорик", age: "29", avatar: UIImage(named: "drugsman3"), photoArray: imArray)
-        
-        DataStorage.share.usersArray.append(user1)
-        DataStorage.share.usersArray.append(user2)
-        DataStorage.share.usersArray.append(user3)
-        DataStorage.share.usersArray.append(user4)
-        DataStorage.share.usersArray.append(user5)
-        DataStorage.share.usersArray.append(user6)
-        DataStorage.share.usersArray.append(user7)
-        
-        
-        let group1 = Group(name: "Все. Завтра не пью!", avatar: UIImage(named: "groupsAvatar1"))
-        let group2 = Group(name: "Ботаники", avatar: UIImage(named: "groupsAvatar2"))
-        
-        DataStorage.share.otherGroupsArray.append(group1)
-        DataStorage.share.otherGroupsArray.append(group2)
-        
-        let otherGroup1 = Group(name: "Какое-то сообщество", avatar: UIImage(named: "someCommunity"))
-        let otherGroup2 = Group(name: "Петросяния и только", avatar: UIImage(named: "petrosyania"))
-        
-        DataStorage.share.otherGroupsArray.append(otherGroup1)
-        DataStorage.share.otherGroupsArray.append(otherGroup2)
+//        var imArray = getArrayPhotoUser(array: [UIImage(named: "foto1_1")!, UIImage(named: "foto1_2")!])
+//        
+//        //imArray.append(userFoto)
+//        
+//        //userFoto.photo = UIImage(named: "foto1_2")!
+//        //imArray.append(userFoto)
+//        
+//        let user1 = User(name: "Митрич", age: "45", avatar: UIImage(named: "mitrichAvatar"), photoArray: imArray)
+//        
+//        imArray = getArrayPhotoUser(array: [UIImage(named: "foto2_1")!, UIImage(named: "foto2_2")!])
+//        
+////        userFoto.photo = UIImage(named: "foto2_1")!
+////        imArray.append(userFoto)
+////
+////        userFoto.photo = UIImage(named: "foto2_2")!
+////        imArray.append(userFoto)
+//        
+//        let user2 = User(name: "Валера", age: "28", avatar: UIImage(named: "avatar2"), photoArray: imArray)
+//        
+//        imArray = getArrayPhotoUser(array: [UIImage(named: "foto3_1")!])
+//        
+////        imArray.removeAll()
+////
+////        userFoto.photo = UIImage(named: "foto3_1")!
+////        imArray.append(userFoto)
+//        
+//        
+//        let user3 = User(name: "Эдик", age: "32", avatar: UIImage(named: "avatar3"), photoArray: imArray)
+//        
+//        imArray = getArrayPhotoUser(array: [UIImage(named: "valdemar")!])
+//        let user4 = User(name: "Вальдемар", age: "21", avatar: UIImage(named: "valdemar"), photoArray: imArray)
+//        
+//        imArray = getArrayPhotoUser(array: [UIImage(named: "drugsman1")!])
+//        let user5 = User(name: "Павлик", age: "50", avatar: UIImage(named: "drugsman1"), photoArray: imArray)
+//        
+//        imArray = getArrayPhotoUser(array: [UIImage(named: "drugsman2")!])
+//        let user6 = User(name: "Петрович", age: "32", avatar: UIImage(named: "drugsman2"), photoArray: imArray)
+//        
+//        imArray = getArrayPhotoUser(array: [UIImage(named: "drugsman3")!])
+//        let user7 = User(name: "Жорик", age: "29", avatar: UIImage(named: "drugsman3"), photoArray: imArray)
+//        
+//        DataStorage.share.usersArray.append(user1)
+//        DataStorage.share.usersArray.append(user2)
+//        DataStorage.share.usersArray.append(user3)
+//        DataStorage.share.usersArray.append(user4)
+//        DataStorage.share.usersArray.append(user5)
+//        DataStorage.share.usersArray.append(user6)
+//        DataStorage.share.usersArray.append(user7)
+//        
+//        
+//        let group1 = Group(name: "Все. Завтра не пью!", avatar: UIImage(named: "groupsAvatar1"))
+//        let group2 = Group(name: "Ботаники", avatar: UIImage(named: "groupsAvatar2"))
+//        
+//        DataStorage.share.otherGroupsArray.append(group1)
+//        DataStorage.share.otherGroupsArray.append(group2)
+//        
+//        let otherGroup1 = Group(name: "Какое-то сообщество", avatar: UIImage(named: "someCommunity"))
+//        let otherGroup2 = Group(name: "Петросяния и только", avatar: UIImage(named: "petrosyania"))
+//        
+//        DataStorage.share.otherGroupsArray.append(otherGroup1)
+//        DataStorage.share.otherGroupsArray.append(otherGroup2)
     }
     
     @IBAction func pressLoginButton(sender: UIButton) {
@@ -321,15 +321,15 @@ class LoginFormController: UIViewController {
     }
     */
     
-    func getArrayPhotoUser(array: [UIImage]) -> [UserFoto] {
-        var imArray = [UserFoto] ()
-        for item in array {
-            var user = UserFoto(photo: item, countOfLike: Int.random(in: 0...10), countOfDislike: Int.random(in: 0...10))
-            imArray.append(user)
-        }
-        
-        return imArray
-    }
+//    func getArrayPhotoUser(array: [UIImage]) -> [UserFoto] {
+//        var imArray = [UserFoto] ()
+//        for item in array {
+//            var user = UserFoto(photo: item, countOfLike: Int.random(in: 0...10), countOfDislike: Int.random(in: 0...10))
+//            imArray.append(user)
+//        }
+//
+//        return imArray
+//    }
     
     func animePageContol() {
        //UIView

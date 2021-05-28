@@ -54,17 +54,17 @@ class NewsTableViewController: UITableViewController {
     }
     
     func fillNewsArray() {
-        let news1 = NewsStruct(title: "Сенсация! Пытаюсь кодить в SWIFT иногда даже что-то получается", autor:  DataStorage.share.usersArray[0], image: UIImage(named: "news1"))
-        
-        DataStorage.share.newsArr.append(news1)
-        
-        let news2 = NewsStruct(title: "Я просто нажимаю на кнопки и получается говнокод", autor:  DataStorage.share.usersArray[1], image: UIImage(named: "news2"))
-        
-        DataStorage.share.newsArr.append(news2)
-        
-        let news3 = NewsStruct(title: "Говорят в голове Валуева живет мышь и ей там скучно", autor:  DataStorage.share.usersArray[2], image: UIImage(named: "news3"))
-        
-        DataStorage.share.newsArr.append(news3)
+//        let news1 = NewsStruct(title: "Сенсация! Пытаюсь кодить в SWIFT иногда даже что-то получается", autor:  DataStorage.share.usersArray[0], image: UIImage(named: "news1"))
+//        
+//        DataStorage.share.newsArr.append(news1)
+//        
+//        let news2 = NewsStruct(title: "Я просто нажимаю на кнопки и получается говнокод", autor:  DataStorage.share.usersArray[1], image: UIImage(named: "news2"))
+//        
+//        DataStorage.share.newsArr.append(news2)
+//        
+//        let news3 = NewsStruct(title: "Говорят в голове Валуева живет мышь и ей там скучно", autor:  DataStorage.share.usersArray[2], image: UIImage(named: "news3"))
+//        
+//        DataStorage.share.newsArr.append(news3)
     }
    
     /*

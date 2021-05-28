@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class FriendsListViewController: UIViewController {
 
     @IBOutlet weak var friedsListTableView: UITableView!
@@ -17,18 +18,36 @@ class FriendsListViewController: UIViewController {
     
     let tableToCollectionSegue = "fromUserTableToCollection"
     
-    var currentIndex: Int?
+    var currentUserId: Int?
     
     var isFiltering = false
     
-    var filteringFriendsArray = [User]()
+//    var filteringFriendsArray = [User]()
+    var filteringFriendsArray = [UserInfo]()
     
     let delegate = UserCollectionViewController()
     
     var myCell = MyFriendsTableViewCell()
     
+    var usersFromVK: [UserInfo] = []
+    var headSearchResposne: SearchResponseUsers? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let request = Network().getFriendsList()
+        Network().requestUsers(request: request) { [weak self](result) in
+            switch result {
+            case .success(let searchResponse):
+                self?.headSearchResposne = searchResponse.response
+                self?.friedsListTableView.reloadData()
+//                searchResponse.response.items.map { user in
+//                    self.usersFromVK.append(user)
+//                }
+            case .failure(let error):
+                print(error)
+            }
+        }
 
         friedsListTableView.dataSource = self
         friedsListTableView.delegate = self
@@ -37,19 +56,11 @@ class FriendsListViewController: UIViewController {
         
         friedsListTableView.register(userCell, forCellReuseIdentifier: userCellIdentifier)
         
-        // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+    
 
 }
 
@@ -59,11 +70,16 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltering {
-            return filteringFriendsArray.count
-        } else {
-            return DataStorage.share.usersArray.count
-    }
+        
+//        if isFiltering {
+//            return filteringFriendsArray.count
+//        } else {
+//            return DataStorage.share.usersArray.count
+//        }
+        
+       // let userArray = Network().getFriendsList()
+        //return usersFromVK.count
+        return headSearchResposne?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,7 +88,20 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate 
         if isFiltering {
             cell.configCell(user: filteringFriendsArray[indexPath.row])
         } else {
-            cell.configCell(user: DataStorage.share.usersArray[indexPath.row])
+            //cell.configCell(user: DataStorage.share.usersArray[indexPath.row])
+            let user = headSearchResposne?.items[indexPath.row]
+            cell.configCell(user: user!)
+            
+            //получаем фото из строки url
+            let urlString = user?.photo
+            let urlAvatar = URL(string: urlString!)
+            DispatchQueue.global().async {
+                let data = try? Data(contentsOf: urlAvatar!)
+                DispatchQueue.main.async {
+                    cell.friendAvatar.image = UIImage(data: data!)
+                }
+            }
+            
         }
         //cell.selectionStyle = UITableViewCell.SelectionStyle.blue
         //cell.delegate = self
@@ -87,7 +116,7 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
-        currentIndex = indexPath.row
+        currentUserId = headSearchResposne?.items[indexPath.row].id
         
         //animateImage(cell: myCell)
         
@@ -114,25 +143,31 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate 
         // Pass the selected object to the new view controller.
         //if segue.identifier == tableToCollectionSegue {
             guard let dst = segue.destination as? UserCollectionViewController else { return }
-        dst.currentIndex = currentIndex
+        dst.currentUserId = currentUserId
     
     }
+    
+ 
+    
 }
 
 
 
+//Все равно пока не работает
 
-extension FriendsListViewController: CustomControlProtocol {
-    func setFindLiteral(literal: Literal?) {
-        guard let literal = literal else { return }
-        
-        filteringFriendsArray = DataStorage.share.usersArray.filter({$0.name.prefix(1) == literal.title})
-        
-        isFiltering = true
-        friedsListTableView.reloadData()
-        
-    }
+//extension FriendsListViewController: CustomControlProtocol {
+//    func setFindLiteral(literal: Literal?) {
+//        guard let literal = literal else { return }
+//
+////        filteringFriendsArray = DataStorage.share.usersArray.filter({$0.name!.prefix(1) == literal.title})
+//
+//        filteringFriendsArray = usersFromVK.filter({$0.firstName.prefix(1) == literal.title})
+//
+//        isFiltering = true
+//        friedsListTableView.reloadData()
+//
+//    }
     
     
     
-}
+//}
