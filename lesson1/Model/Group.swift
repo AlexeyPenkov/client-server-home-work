@@ -1,14 +1,23 @@
 //
-//  File.swift
+//  SearchResponseCommunity.swift
 //  lesson1
 //
-//  Created by Алексей Пеньков on 11.04.2021.
+//  Created by Алексей Пеньков on 28.05.2021.
 //
 
 import Foundation
-import UIKit
 
-struct Group {
+struct HeadResponseCommunity: Decodable {
+    var response: SearchResponseCommunity
+}
+
+struct SearchResponseCommunity: Decodable {
+    var count: Int
+    var items: [CommunityInfo]
+}
+
+struct CommunityInfo: Decodable {
     var name: String
-    var avatar: UIImage?
+    var id: Int
+    var photo: String?
 }
