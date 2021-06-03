@@ -8,4 +8,9 @@ target 'lesson1' do
   # Pods for lesson1
   pod 'Alamofire'
 
+  pod 'RealmSwift'
+
+  pod 'SwiftKeychainWrapper'
+
+
 end

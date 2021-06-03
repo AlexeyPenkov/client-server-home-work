@@ -16,30 +16,37 @@ class GroupTableViewController: UITableViewController {
     let fromMyCommunityToFindCommunitySegue = "myCommunityToFIndCommunity"
     
     var headSearchResposne: SearchResponseCommunity? = nil
+    
+    let funcForRealm = FuncForWorkingWithRealm()
+    var groupArr = [GroupRealm]()
   
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //groupTableView.dataSource = self
+        groupArr = funcForRealm.readGroupsFromRealm()
         
-        let request = Network().getCommunityForCurrentUserList(selection: nil)
-        Network().requestCommunity(request: request) { [weak self](result) in
-            switch result {
-            case .success(let searchResponse):
-                self?.headSearchResposne = searchResponse.response
-                self?.groupTableView.reloadData()
-//                searchResponse.response.items.map { user in
-//                    self.usersFromVK.append(user)
-//                }
-            case .failure(let error):
-                print(error)
+        if groupArr.count == 0 {
+            let request = Network().getCommunityForCurrentUserList(selection: nil)
+            Network().requestCommunity(request: request) { [weak self](result) in
+                switch result {
+                case .success(let searchResponse):
+//                    self?.headSearchResposne = searchResponse.response
+//                    self?.groupTableView.reloadData()
+    //                searchResponse.response.items.map { user in
+    //                    self.usersFromVK.append(user)
+    //                }
+                    self?.funcForRealm.writeGroupsFromRealm(response: searchResponse.response)
+                case .failure(let error):
+                    print(error)
+                }
             }
         }
         
         //self.tableView.register(UINib(nibName: "GroupTableViewCell", bundle: nil), forCellReuseIdentifier: groupCellIdentifier)
         groupTableView.register(UINib(nibName: "GroupTableViewCell", bundle: nil), forCellReuseIdentifier: groupCellIdentifier)
      
-        
+        self.groupTableView.reloadData()
     
     }
 
@@ -56,21 +63,24 @@ class GroupTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return headSearchResposne?.items.count ?? 0
+//        return headSearchResposne?.items.count ?? 0
+        return groupArr.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: groupCellIdentifier, for: indexPath) as? GroupTableViewCell else { return UITableViewCell() }
 
-        let community = headSearchResposne?.items[indexPath.row]
-        cell.configCell(group: community!)
+        //let community = headSearchResposne?.items[indexPath.row]
+        //cell.configCell(group: community!)
 
+        cell.configCell(group: groupArr[indexPath.row])
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        DataStorage.share.groupsArray.remove(at: indexPath.row)
+        //DataStorage.share.groupsArray.remove(at: indexPath.row)
         self.tableView.reloadData()
     }
   
@@ -84,5 +94,8 @@ class GroupTableViewController: UITableViewController {
         performSegue(withIdentifier: fromMyCommunityToFindCommunitySegue, sender: nil)
     }
     
+    @IBAction func clearRealm() {
+        funcForRealm.clearUsersRealm()
+    }
 
 }

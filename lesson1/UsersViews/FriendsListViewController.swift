@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 
 class FriendsListViewController: UIViewController {
@@ -32,20 +33,29 @@ class FriendsListViewController: UIViewController {
     var usersFromVK: [UserInfo] = []
     var headSearchResposne: SearchResponseUsers? = nil
     
+    var userArr = [UserRealm]()
+    
+    let funcForRealm = FuncForWorkingWithRealm()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let request = Network().getFriendsList()
-        Network().requestUsers(request: request) { [weak self](result) in
-            switch result {
-            case .success(let searchResponse):
-                self?.headSearchResposne = searchResponse.response
-                self?.friedsListTableView.reloadData()
-//                searchResponse.response.items.map { user in
-//                    self.usersFromVK.append(user)
-//                }
-            case .failure(let error):
-                print(error)
+       // clearUsersRealm()
+        userArr = funcForRealm.readUserFromRealm()
+        
+        if userArr.count == 0 {
+            let request = Network().getFriendsList()
+            Network().requestUsers(request: request) { [weak self](result) in
+                switch result {
+                case .success(let searchResponse):
+//                    self?.headSearchResposne = searchResponse.response
+//                    self?.friedsListTableView.reloadData()
+    //                searchResponse.response.items.map { user in
+    //                    self.usersFromVK.append(user)
+    //                }
+                    self?.funcForRealm.writeUserToRealm(response: searchResponse.response)
+                case .failure(let error):
+                    print(error)
+                }
             }
         }
 
@@ -56,9 +66,8 @@ class FriendsListViewController: UIViewController {
         
         friedsListTableView.register(userCell, forCellReuseIdentifier: userCellIdentifier)
         
+        friedsListTableView.reloadData()
     }
-    
-
     
     
 
@@ -79,28 +88,34 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate 
         
        // let userArray = Network().getFriendsList()
         //return usersFromVK.count
-        return headSearchResposne?.count ?? 0
+//        let userArray = readUserFromRealm()
+        
+        //return headSearchResposne?.count ?? 0
+        return userArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = friedsListTableView.dequeueReusableCell(withIdentifier: userCellIdentifier, for: indexPath) as? MyFriendsTableViewCell else { return UITableViewCell() }
 
         if isFiltering {
-            cell.configCell(user: filteringFriendsArray[indexPath.row])
+            //cell.configCell(user: filteringFriendsArray[indexPath.row])
         } else {
             //cell.configCell(user: DataStorage.share.usersArray[indexPath.row])
-            let user = headSearchResposne?.items[indexPath.row]
-            cell.configCell(user: user!)
+            //let user = headSearchResposne?.items[indexPath.row]
+            
+            let user = userArr[indexPath.row]
+            
+            cell.configCell(user: user)
             
             //получаем фото из строки url
-            let urlString = user?.photo
-            let urlAvatar = URL(string: urlString!)
-            DispatchQueue.global().async {
-                let data = try? Data(contentsOf: urlAvatar!)
-                DispatchQueue.main.async {
-                    cell.friendAvatar.image = UIImage(data: data!)
-                }
-            }
+//            let urlString = user.photo
+//            let urlAvatar = URL(string: urlString)
+//            DispatchQueue.global().async {
+//                let data = try? Data(contentsOf: urlAvatar!)
+//                DispatchQueue.main.async {
+//                    cell.friendAvatar.image = UIImage(data: data!)
+//                }
+//            }
             
         }
         //cell.selectionStyle = UITableViewCell.SelectionStyle.blue
@@ -116,8 +131,8 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
-        currentUserId = headSearchResposne?.items[indexPath.row].id
-        
+        //currentUserId = headSearchResposne?.items[indexPath.row].id
+        currentUserId = userArr[indexPath.row].id
         //animateImage(cell: myCell)
         
         performSegue(withIdentifier: tableToCollectionSegue, sender: self)

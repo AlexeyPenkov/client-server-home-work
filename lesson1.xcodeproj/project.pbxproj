@@ -18,6 +18,11 @@
 		BC2F07E12622C0AC00180B26 /* Group(no used).swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F07E02622C0AB00180B26 /* Group(no used).swift */; };
 		BC2F07E42622C12000180B26 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F07E32622C12000180B26 /* DataStorage.swift */; };
 		BC2F07EB26235EF700180B26 /* GroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F07EA26235EF700180B26 /* GroupTableViewController.swift */; };
+		BC35B0D2266737A9004FA2BB /* UsersRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D1266737A9004FA2BB /* UsersRealm.swift */; };
+		BC35B0D426673891004FA2BB /* GroupRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D326673891004FA2BB /* GroupRealm.swift */; };
+		BC35B0D626673919004FA2BB /* PhotosRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D526673919004FA2BB /* PhotosRealm.swift */; };
+		BC35B0D82668791C004FA2BB /* FuncForWorkingWithRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D72668791C004FA2BB /* FuncForWorkingWithRealm.swift */; };
+		BC35B0DA26688278004FA2BB /* OtherGroupRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D926688278004FA2BB /* OtherGroupRealm.swift */; };
 		BC5D595826490B0400D50529 /* MyFirstCustromSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5D595726490B0400D50529 /* MyFirstCustromSegue.swift */; };
 		BC5D5A57265B825700D50529 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5D5A56265B825700D50529 /* Session.swift */; };
 		BC8C30BE265E175200C91E23 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C30BD265E175200C91E23 /* AuthViewController.swift */; };
@@ -60,6 +65,11 @@
 		BC2F07E02622C0AB00180B26 /* Group(no used).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group(no used).swift"; sourceTree = "<group>"; };
 		BC2F07E32622C12000180B26 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		BC2F07EA26235EF700180B26 /* GroupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewController.swift; sourceTree = "<group>"; };
+		BC35B0D1266737A9004FA2BB /* UsersRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRealm.swift; sourceTree = "<group>"; };
+		BC35B0D326673891004FA2BB /* GroupRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRealm.swift; sourceTree = "<group>"; };
+		BC35B0D526673919004FA2BB /* PhotosRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRealm.swift; sourceTree = "<group>"; };
+		BC35B0D72668791C004FA2BB /* FuncForWorkingWithRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncForWorkingWithRealm.swift; sourceTree = "<group>"; };
+		BC35B0D926688278004FA2BB /* OtherGroupRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherGroupRealm.swift; sourceTree = "<group>"; };
 		BC5D595726490B0400D50529 /* MyFirstCustromSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFirstCustromSegue.swift; sourceTree = "<group>"; };
 		BC5D5A56265B825700D50529 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		BC8C30BD265E175200C91E23 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +135,11 @@
 				BC8C30C2265F659500C91E23 /* User.swift */,
 				BC8C30C62660BEC100C91E23 /* Group.swift */,
 				BC8C30D82664C1BF00C91E23 /* Photo.swift */,
+				BC35B0D1266737A9004FA2BB /* UsersRealm.swift */,
+				BC35B0D326673891004FA2BB /* GroupRealm.swift */,
+				BC35B0D926688278004FA2BB /* OtherGroupRealm.swift */,
+				BC35B0D526673919004FA2BB /* PhotosRealm.swift */,
+				BC35B0D72668791C004FA2BB /* FuncForWorkingWithRealm.swift */,
 				BC8C30C82660D69400C91E23 /* SearchResponseUserPhotos.swift */,
 				BC2F07DD2622BDE200180B26 /* User(no used).swift */,
 				BCE7224926317DCF005D4817 /* Photo(no used).swift */,
@@ -396,6 +411,7 @@
 				BCE7224E2635B503005D4817 /* NewsTableViewController.swift in Sources */,
 				BCBE6B2B2619A1850062FAED /* SceneDelegate.swift in Sources */,
 				BC9FF9AF26249DF000DD0AE6 /* OtherGroupTableViewController.swift in Sources */,
+				BC35B0D626673919004FA2BB /* PhotosRealm.swift in Sources */,
 				BCFA86A626308780009A8FCC /* ControlTableViewCell.swift in Sources */,
 				BC9FF9B926283BB900DD0AE6 /* UserCollectionViewController.swift in Sources */,
 				BC5D595826490B0400D50529 /* MyFirstCustromSegue.swift in Sources */,
@@ -403,13 +419,17 @@
 				BC2F07E42622C12000180B26 /* DataStorage.swift in Sources */,
 				BCFA86A1263079E5009A8FCC /* FriendsListViewController.swift in Sources */,
 				BC2F07D92620464F00180B26 /* UserCollectionViewCell.swift in Sources */,
+				BC35B0D426673891004FA2BB /* GroupRealm.swift in Sources */,
 				BC8C30C92660D69400C91E23 /* SearchResponseUserPhotos.swift in Sources */,
+				BC35B0D2266737A9004FA2BB /* UsersRealm.swift in Sources */,
 				BC2F07C42620432A00180B26 /* MyFriendsTableViewCell.swift in Sources */,
+				BC35B0DA26688278004FA2BB /* OtherGroupRealm.swift in Sources */,
 				BC5D5A57265B825700D50529 /* Session.swift in Sources */,
 				BC8C30C72660BEC100C91E23 /* Group.swift in Sources */,
 				BC8C30D62664BD8800C91E23 /* PrettyJSON.swift in Sources */,
 				BC2F07E12622C0AC00180B26 /* Group(no used).swift in Sources */,
 				BC2F07D0262044E600180B26 /* GroupTableViewCell.swift in Sources */,
+				BC35B0D82668791C004FA2BB /* FuncForWorkingWithRealm.swift in Sources */,
 				BCFA86B026310F3D009A8FCC /* ControlFriendListTableView.swift in Sources */,
 				BC2F07DE2622BDE200180B26 /* User(no used).swift in Sources */,
 				BC8C30C3265F659500C91E23 /* User.swift in Sources */,

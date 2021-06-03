@@ -20,36 +20,44 @@ class UserCollectionViewController: UICollectionViewController {
     var searchRequest: StructUserPhoto?
    
     var photoArray = [Photo]()
+    var photoArrayRealm = [PhotosRealm]()
+    let funcForRealm = FuncForWorkingWithRealm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         guard let currentIndex = currentUserId else { return }
         
-        urlRequest = Network().requestUserPhotioForAlomofire(userId: currentIndex)
-        
-        AF.request(urlRequest, method: .get).responseData { response in
-            guard let data = response.value else { return }
-            
-            self.searchRequest = try? JSONDecoder().decode(StructUserPhoto.self, from: data)
-            
-            self.photoArray.removeAll()
-            
-            self.searchRequest?.response.items.forEach({ item in
-                item.sizes.forEach { size in
-                    //print("Здесь должен быть ЮРЛ \(size.url)")
-                    if size.width == 320 {
-                        let photoItem = Photo(url: size.url)
-                        self.photoArray.append(photoItem)
-                    }
-//                    print(self.photoArray.count)
-                }
-            })
-            
-            self.collectionView.reloadData()
-            
+        photoArrayRealm = funcForRealm.readPhotosFromRealm().filter { $0.userId == currentIndex
         }
-        
+    
+        if photoArrayRealm.count == 0 {
+            urlRequest = Network().requestUserPhotioForAlomofire(userId: currentIndex)
+            
+            AF.request(urlRequest, method: .get).responseData { [self] response in
+                guard let data = response.value else { return }
+                
+                self.searchRequest = try? JSONDecoder().decode(StructUserPhoto.self, from: data)
+                
+                funcForRealm.writePhotosFromRealm(response: self.searchRequest!.response)
+            
+//            self.photoArray.removeAll()
+//
+//            self.searchRequest?.response.items.forEach({ item in
+//                item.sizes.forEach { size in
+//                    //print("Здесь должен быть ЮРЛ \(size.url)")
+//                    if size.width == 320 {
+//                        let photoItem = Photo(url: size.url)
+//                        self.photoArray.append(photoItem)
+//                    }
+////                    print(self.photoArray.count)
+//                }
+//            })
+            
+               
+                
+            }
+        }
 //        let request = Network().getPhotos(userId: currentIndex)
 //        
 //        Network().requestUserPhotos(request: request) { [weak self](result) in
@@ -76,7 +84,7 @@ class UserCollectionViewController: UICollectionViewController {
 //        })
         self.collectionView.register(UINib(nibName: "UserCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: userFotoCellIdentifier)
         
-        
+        self.collectionView.reloadData()
     }
 
     // MARK: UICollectionViewDataSource
@@ -91,8 +99,8 @@ class UserCollectionViewController: UICollectionViewController {
         // #warning Incomplete implementation, return the number of items
         
        
-        return photoArray.count
-        
+        //return photoArray.count
+        return photoArrayRealm.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -102,8 +110,9 @@ class UserCollectionViewController: UICollectionViewController {
         guard let curIndex = currentUserId else { return cell }
         
         
-        cell.configCell(userFoto: photoArray[indexPath.item])
-            
+//        cell.configCell(userFoto: photoArray[indexPath.item])
+        
+        cell.configCell(userFoto: photoArrayRealm[indexPath.item])
             cell.currentCount = curIndex
             cell.currentItem = indexPath.item
             cell.delegate = self
