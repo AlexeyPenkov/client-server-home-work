@@ -16,7 +16,7 @@ class UserCollectionViewCell: UICollectionViewCell {
 
     var likeCount = 0, dislikeCount = 0
     var isLiked = true, isDisLiked = true
-    var saveUserFoto: Photo?
+    var saveUserFoto: PhotosRealm?
     var currentCount: Int?
     var currentItem: Int?
     
@@ -46,10 +46,10 @@ class UserCollectionViewCell: UICollectionViewCell {
         clearCell()
     }
     
-    func configCell(userFoto: Photo?) {
+    func configCell(userFoto: PhotosRealm?) {
         
         //получаем фото из строки url
-        let urlString = userFoto?.url
+        let urlString = userFoto?.photo
         let urlAvatar = URL(string: urlString!)
         DispatchQueue.global().async {
             let data = try? Data(contentsOf: urlAvatar!)

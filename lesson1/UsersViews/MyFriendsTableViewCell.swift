@@ -18,7 +18,8 @@ class MyFriendsTableViewCell: UITableViewCell {
    
     
 //    var saveUser: User?
-    var saveUser: UserInfo?
+//    var saveUser: UserInfo?
+    var saveUser: UserRealm?
     
 //    var tapOnCell: ((_ success: Bool) -> Void)?
     
@@ -66,9 +67,9 @@ class MyFriendsTableViewCell: UITableViewCell {
 //                friendAvatar.image = avatar
 //
 //            }
-    func configCell(user: UserInfo) {
+//    func configCell(user: UserInfo) {
         
-       
+    func configCell(user: UserRealm) {
         
         friendName.text =  user.firstName + " " + user.lastName
        // friendAge.text = "Возраст: " + user.age
@@ -76,6 +77,16 @@ class MyFriendsTableViewCell: UITableViewCell {
 //            friendAvatar.image = avatar
 //
 //        }
+        //friendAvatar.image = user.photo
+        
+        let urlString = user.photo
+        let urlAvatar = URL(string: urlString)
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: urlAvatar!)
+            DispatchQueue.main.async {
+                self.friendAvatar.image = UIImage(data: data!)
+            }
+        }
         saveUser = user
     }
     

@@ -21,19 +21,25 @@ class OtherGroupTableViewController: UITableViewController {
     
     var headSearchResposne: SearchResponseCommunity? = nil
     
+    let funcForRealm = FuncForWorkingWithRealm()
+    var otherGroupArr = [OtherGroupRealm]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //funcForRealm.clearUsersRealm()
+        otherGroupArr = funcForRealm.readOtherGroupsFromRealm()
+        
         let request = Network().getCommunityList(selection: nil)
         Network().requestCommunity(request: request) { [weak self] (result) in
             switch result {
             case .success(let searchResponse):
-                self?.headSearchResposne = searchResponse.response
-                self?.tableView.reloadData()
+//                self?.headSearchResposne = searchResponse.response
+//                self?.tableView.reloadData()
 //                searchResponse.response.items.map { user in
 //                    print(user.photo_100)
 //                }
+                self?.funcForRealm.writeOtherGroupsFromRealm(response: searchResponse.response)
             case .failure(let error):
                 print(error)
             }
@@ -42,7 +48,8 @@ class OtherGroupTableViewController: UITableViewController {
         self.tableView.register(UINib(nibName: "GroupTableViewCell", bundle: nil), forCellReuseIdentifier: otherGroupCell)
         
         mySearch.delegate = self
-        
+       
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -57,8 +64,9 @@ class OtherGroupTableViewController: UITableViewController {
         if searchIn {
             return filteringGroupsArray.count
         } else {
-            return headSearchResposne?.items.count ?? 0
+            //return headSearchResposne?.items.count ?? 0
             //return DataStorage.share.otherGroupsArray.count
+            return otherGroupArr.count
         }
     }
 
@@ -70,8 +78,22 @@ class OtherGroupTableViewController: UITableViewController {
             //cell.configCell(group: filteringGroupsArray[indexPath.row])
         } else {
             
-            let community = headSearchResposne?.items[indexPath.row]
-            cell.configCell(group: community!)
+            //cell.configCell(group: otherGroupArr[indexPath.row])
+            let group = otherGroupArr[indexPath.row]
+            cell.groupName.text = group.name
+            
+    //        //получаем фото из строки url
+            let urlString = group.photo
+            if let urlAvatar = URL(string: urlString) {
+                DispatchQueue.global().async {
+                    let data = try? Data(contentsOf: urlAvatar)
+                    DispatchQueue.main.async {
+                        cell.groupAvatar.image = UIImage(data: data!)
+                    }
+                }
+            }
+//            let community = headSearchResposne?.items[indexPath.row]
+//            cell.configCell(group: community!)
             
 //            let urlString = community?.photo
 //            let urlAvatar = URL(string: urlString!)

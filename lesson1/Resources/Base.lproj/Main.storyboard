@@ -295,6 +295,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Мои тусовки" id="QOO-bL-efY">
+                        <barButtonItem key="leftBarButtonItem" title="Очистить Realm" style="plain" id="QO6-vJ-fu4">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="WLC-Bx-Zyg">
+                                <rect key="frame" x="20" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="clearRealm" destination="nBf-wY-oUp" eventType="touchUpInside" id="7Im-vJ-SPd"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Найти тусовку" id="z2a-Yq-gKi">
                             <connections>
                                 <action selector="pressFinfCommunity" destination="nBf-wY-oUp" id="glY-nb-SQJ"/>

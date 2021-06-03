@@ -14,13 +14,22 @@ import Foundation
 
 // MARK: - UserPhoto
 struct StructUserPhoto: Codable {
-    let response: Response
+    let response: ResponsePhoto
 }
 
 // MARK: - Response
-struct Response: Codable {
+struct ResponsePhoto: Codable {
     let count: Int
     let items: [Item]
+    
+    var photos: [String] {
+        var tempArr = [String]()
+        for item in self.items {
+            tempArr.append(item.sizes.first!.url)
+        }
+       
+        return tempArr
+    }
 }
 
 // MARK: - Item
@@ -45,6 +54,7 @@ struct Item: Codable {
         case tags
         case postID = "post_id"
     }
+    
 }
 
 // MARK: - Comments

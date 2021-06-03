@@ -19,5 +19,5 @@ struct SearchResponseCommunity: Decodable {
 struct CommunityInfo: Decodable {
     var name: String
     var id: Int
-    var photo: String?
+    var photo_100: String?
 }
