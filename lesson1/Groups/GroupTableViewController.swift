@@ -15,25 +15,32 @@ class GroupTableViewController: UITableViewController {
     
     let fromMyCommunityToFindCommunitySegue = "myCommunityToFIndCommunity"
     
-    //let groupCell =
+    var headSearchResposne: SearchResponseCommunity? = nil
   
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //groupTableView.dataSource = self
         
-        
+        let request = Network().getCommunityForCurrentUserList(selection: nil)
+        Network().requestCommunity(request: request) { [weak self](result) in
+            switch result {
+            case .success(let searchResponse):
+                self?.headSearchResposne = searchResponse.response
+                self?.groupTableView.reloadData()
+//                searchResponse.response.items.map { user in
+//                    self.usersFromVK.append(user)
+//                }
+            case .failure(let error):
+                print(error)
+            }
+        }
         
         //self.tableView.register(UINib(nibName: "GroupTableViewCell", bundle: nil), forCellReuseIdentifier: groupCellIdentifier)
         groupTableView.register(UINib(nibName: "GroupTableViewCell", bundle: nil), forCellReuseIdentifier: groupCellIdentifier)
      
         
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -48,15 +55,16 @@ class GroupTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return DataStorage.share.groupsArray.count
+        
+        return headSearchResposne?.items.count ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: groupCellIdentifier, for: indexPath) as? GroupTableViewCell else { return UITableViewCell() }
 
-        cell.configCell(group: DataStorage.share.groupsArray[indexPath.row])
+        let community = headSearchResposne?.items[indexPath.row]
+        cell.configCell(group: community!)
 
         return cell
     }

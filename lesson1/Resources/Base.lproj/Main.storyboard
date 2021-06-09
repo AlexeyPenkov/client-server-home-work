@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rl5-x2-lTp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -9,6 +9,41 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Auth View Controller-->
+        <scene sceneID="e9W-Ja-ybk">
+            <objects>
+                <viewController id="Rl5-x2-lTp" customClass="AuthViewController" customModule="lesson1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Hh-rZ-bTw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YKg-pg-5WJ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fz2-45-JW0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fz2-45-JW0" firstAttribute="bottom" secondItem="YKg-pg-5WJ" secondAttribute="bottom" id="3Yo-7i-cve"/>
+                            <constraint firstItem="YKg-pg-5WJ" firstAttribute="leading" secondItem="fz2-45-JW0" secondAttribute="leading" id="68F-rC-wAC"/>
+                            <constraint firstItem="fz2-45-JW0" firstAttribute="trailing" secondItem="YKg-pg-5WJ" secondAttribute="trailing" id="BZN-s8-fW1"/>
+                            <constraint firstItem="YKg-pg-5WJ" firstAttribute="top" secondItem="fz2-45-JW0" secondAttribute="top" id="PFV-pG-afx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="YKg-pg-5WJ" id="8to-di-MGH"/>
+                        <segue destination="mOI-oP-9BA" kind="presentation" identifier="fromAuthToTabBarController" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="c8c-aF-vwX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LSh-r2-PWP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3719" y="-328"/>
+        </scene>
         <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -168,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3636.2318840579715" y="18.75"/>
+            <point key="canvasLocation" x="-3742" y="358"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tLx-dt-QoF">
@@ -181,8 +216,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="R5b-eL-Kra" kind="relationship" relationship="viewControllers" id="8eE-XX-iSb"/>
                         <segue destination="rSr-qv-mZK" kind="relationship" relationship="viewControllers" id="U4V-oy-z0S"/>
+                        <segue destination="R5b-eL-Kra" kind="relationship" relationship="viewControllers" id="8eE-XX-iSb"/>
                         <segue destination="cz5-Wb-Rbi" kind="relationship" relationship="viewControllers" id="ODR-QT-XnG"/>
                     </connections>
                 </tabBarController>
@@ -414,6 +449,9 @@
             <point key="canvasLocation" x="-1946" y="-328"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="c8c-aF-vwX"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="hand.tap" catalog="system" width="113" height="128"/>
         <image name="mkMen" width="499" height="511"/>

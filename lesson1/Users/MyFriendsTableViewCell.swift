@@ -17,7 +17,8 @@ class MyFriendsTableViewCell: UITableViewCell {
     @IBOutlet weak var customView: UIView!
    
     
-    var saveUser: User?
+//    var saveUser: User?
+    var saveUser: UserInfo?
     
 //    var tapOnCell: ((_ success: Bool) -> Void)?
     
@@ -58,14 +59,23 @@ class MyFriendsTableViewCell: UITableViewCell {
         clearCell()
     }
     
-    func configCell(user: User) {
+//    func configCell(user: User) {
+//            friendName.text =  user.name
+//           // friendAge.text = "Возраст: " + user.age
+//            if let avatar = user.avatar {
+//                friendAvatar.image = avatar
+//
+//            }
+    func configCell(user: UserInfo) {
         
-        friendName.text =  user.name
-        friendAge.text = "Возраст: " + user.age
-        if let avatar = user.avatar {
-            friendAvatar.image = avatar
-            
-        }
+       
+        
+        friendName.text =  user.firstName + " " + user.lastName
+       // friendAge.text = "Возраст: " + user.age
+//        if let avatar = user.avatar {
+//            friendAvatar.image = avatar
+//
+//        }
         saveUser = user
     }
     

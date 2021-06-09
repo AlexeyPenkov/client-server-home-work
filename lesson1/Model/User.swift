@@ -9,8 +9,22 @@ import Foundation
 import UIKit
 
 struct User {
-    var name: String
-    var age: String
+    
+    var name: String?
+    //var age: String
     var avatar: UIImage?
     var photoArray = [UserFoto]()
+    
+    var firstName: String {
+        didSet {
+            name = firstName + " " + lastName
+        }
+    }
+    var lastName: String {
+        didSet {
+            name = firstName + " " + lastName
+        }
+    }
+    var id: Int
+    var photo: String?
 }

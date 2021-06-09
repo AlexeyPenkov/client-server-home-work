@@ -16,7 +16,7 @@ class UserCollectionViewCell: UICollectionViewCell {
 
     var likeCount = 0, dislikeCount = 0
     var isLiked = true, isDisLiked = true
-    var saveUserFoto: UserFoto?
+    var saveUserFoto: Photo?
     var currentCount: Int?
     var currentItem: Int?
     
@@ -46,20 +46,25 @@ class UserCollectionViewCell: UICollectionViewCell {
         clearCell()
     }
     
-    func configCell(userFoto: UserFoto?) {
-        if let userFoto = userFoto {
-            foto.image = userFoto.photo
-            likeCount = userFoto.countOfLike
-            dislikeCount = userFoto.countOfDislike
+    func configCell(userFoto: Photo?) {
+        
+        //получаем фото из строки url
+        let urlString = userFoto?.url
+        let urlAvatar = URL(string: urlString!)
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: urlAvatar!)
+            DispatchQueue.main.async {
+                self.foto.image = UIImage(data: data!)
+            }
         }
-        labelLikeCounter.text = String(likeCount)
-        labelDisCounter.text = String(dislikeCount)
-        
-        likeButton.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
-        likeButton.tintColor = UIColor.black
-        
-        dislikeButton.setImage(UIImage(systemName: "hand.thumbsdown"), for: .normal)
-        dislikeButton.tintColor = UIColor.black
+//        labelLikeCounter.text = String(likeCount)
+//        labelDisCounter.text = String(dislikeCount)
+//        
+//        likeButton.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
+//        likeButton.tintColor = UIColor.black
+//        
+//        dislikeButton.setImage(UIImage(systemName: "hand.thumbsdown"), for: .normal)
+//        dislikeButton.tintColor = UIColor.black
         
         saveUserFoto = userFoto
         //let myStackView = UIStackView(frame: CGRect(x: foto.frame.maxX-100.0, y: foto.frame.maxY-15.0, width: 100.0, height: 15.0))

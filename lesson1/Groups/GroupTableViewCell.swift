@@ -32,12 +32,21 @@ class GroupTableViewCell: UITableViewCell {
         clearCell()
     }
     
-    func configCell(group: Group) {
+    func configCell(group: CommunityInfo) {
         groupName.text = group.name
         
-        if let avatar = group.avatar {
-           groupAvatar.image = avatar
-        }
+//        //получаем фото из строки url
+//        let urlString = group.photo_100
+//        let urlAvatar = URL(string: urlString!)
+//        DispatchQueue.global().async {
+//            let data = try? Data(contentsOf: urlAvatar!)
+//            DispatchQueue.main.async {
+//                self.groupAvatar.image = UIImage(data: data!)
+//            }
+//        }
+//        if let avatar = group.avatar {
+//           groupAvatar.image = avatar
+//        }
         saveItem = group
     }
 }

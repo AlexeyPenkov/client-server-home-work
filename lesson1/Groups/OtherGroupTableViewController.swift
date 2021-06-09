@@ -19,9 +19,26 @@ class OtherGroupTableViewController: UITableViewController {
 
     var searchIn = false
     
+    var headSearchResposne: SearchResponseCommunity? = nil
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let request = Network().getCommunityList(selection: nil)
+        Network().requestCommunity(request: request) { [weak self] (result) in
+            switch result {
+            case .success(let searchResponse):
+                self?.headSearchResposne = searchResponse.response
+                self?.tableView.reloadData()
+//                searchResponse.response.items.map { user in
+//                    print(user.photo_100)
+//                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
         self.tableView.register(UINib(nibName: "GroupTableViewCell", bundle: nil), forCellReuseIdentifier: otherGroupCell)
         
         mySearch.delegate = self
@@ -40,7 +57,8 @@ class OtherGroupTableViewController: UITableViewController {
         if searchIn {
             return filteringGroupsArray.count
         } else {
-            return DataStorage.share.otherGroupsArray.count
+            return headSearchResposne?.items.count ?? 0
+            //return DataStorage.share.otherGroupsArray.count
         }
     }
 
@@ -49,9 +67,20 @@ class OtherGroupTableViewController: UITableViewController {
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: otherGroupCell, for: indexPath) as? GroupTableViewCell else { return UITableViewCell() }
         if searchIn {
-            cell.configCell(group: filteringGroupsArray[indexPath.row])
+            //cell.configCell(group: filteringGroupsArray[indexPath.row])
         } else {
-            cell.configCell(group: DataStorage.share.otherGroupsArray[indexPath.row])
+            
+            let community = headSearchResposne?.items[indexPath.row]
+            cell.configCell(group: community!)
+            
+//            let urlString = community?.photo
+//            let urlAvatar = URL(string: urlString!)
+//            DispatchQueue.global().async {
+//                let data = try? Data(contentsOf: urlAvatar!)
+//                DispatchQueue.main.async {
+//                    cell.groupAvatar.image = UIImage(data: data!)
+//                }
+//            }
         }
         return cell
     }
@@ -94,10 +123,25 @@ class OtherGroupTableViewController: UITableViewController {
 
 extension OtherGroupTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteringGroupsArray = DataStorage.share.otherGroupsArray.filter({$0.name.prefix(searchText.count) == searchText})
+//        filteringGroupsArray = DataStorage.share.otherGroupsArray.filter({$0.name.prefix(searchText.count) == searchText})
+//
+//        searchIn = true
+//        self.tableView.reloadData()
         
-        searchIn = true
-        self.tableView.reloadData()
+        let request = Network().getCommunityList(selection: searchText)
+        Network().requestCommunity(request: request) { [weak self] (result) in
+            switch result {
+            case .success(let searchResponse):
+                self?.headSearchResposne = searchResponse.response
+                self?.tableView.reloadData()
+//                searchResponse.response.items.map { user in
+//                    print(user.photo_100)
+//                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

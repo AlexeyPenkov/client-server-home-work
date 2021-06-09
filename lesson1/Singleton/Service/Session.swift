@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 class Session {
     
     private init() {}
@@ -15,4 +16,5 @@ class Session {
     
     var token: String = ""
     var userID: Int = 0
+    
 }
