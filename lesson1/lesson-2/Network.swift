@@ -15,8 +15,10 @@ class Network: NSObject {
     // ключ для доступа к сервису (должен быть в синглтоне)
     let token = Session.shared.token
     let userID = Session.shared.userID
-
     
+    var photoArray = [Photo]()
+    
+    var headSearchResponse: StructUserPhoto?
     //Подготовка запроса пользователей (друзей)
     //MARK: - getFriendsList
     func getFriendsList() ->URLRequest{
@@ -220,9 +222,47 @@ class Network: NSObject {
                 
 //                let someString = String(data: data, encoding: .utf8)
 //                print(someString ?? "no data")
+                
+                
+                
+                
             }
 
         }.resume()
+        
+    }
+    
+    func requestUserPhotioForAlomofire(userId: Int) -> String {
+        
+//        let url = "https://api.vk.com/method/photos.get?access_token=\(token)&v=5.131&owner_id=\(String(userId))&albub_id=wall&extended=1"
+        
+        let url = "https://api.vk.com/method/photos.get?access_token=\(token)&owner_id=\(String(userId))&album_id=wall&rev=0&extended=1&photo_sizes=0&v=5.131"
+        
+//        AF.request(url, method: .get).responseData { response in
+//            guard let data = response.value else { return }
+//
+//            //print(data.prettyJSON as Any)
+//
+//            self.headSearchResponse = try? JSONDecoder().decode(StructUserPhoto.self, from: data)
+
+//            headSearchResponse?.response.items.forEach({ item in
+//                item.sizes.forEach({ urlString in
+//                    let photoItem = Photo(url: urlString.url)
+//                    self.photoArray.append(photoItem)
+//                })
+//            })
+            
+//            headSearchResponse?.items.forEach({ photo in
+//                photo.sizes.forEach { urlString in
+//                photoArray.append(urlString)
+//                }
+//
+//            })
+            
+//            print(self.photoArray.count)
+        
+         
+        return url
         
     }
 }
