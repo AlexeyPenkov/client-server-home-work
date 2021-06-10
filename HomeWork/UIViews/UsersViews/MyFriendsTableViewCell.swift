@@ -17,11 +17,7 @@ class MyFriendsTableViewCell: UITableViewCell {
     @IBOutlet weak var customView: UIView!
    
     
-//    var saveUser: User?
-//    var saveUser: UserInfo?
     var saveUser: UserRealm?
-    
-//    var tapOnCell: ((_ success: Bool) -> Void)?
     
     func clearCell() {
         friendName.text = nil
@@ -38,7 +34,6 @@ class MyFriendsTableViewCell: UITableViewCell {
         customView.layer.shadowColor = UIColor.black.cgColor
         
         friendAvatar.layer.cornerRadius = customView.frame.size.height / 2
-//        self.setTapOnCell()
      
     }
     
@@ -49,35 +44,14 @@ class MyFriendsTableViewCell: UITableViewCell {
         setupCell()
     }
     
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//        
-//        // Configure the view for the selected state
-//        
-//    }
     
     override func prepareForReuse() {
         clearCell()
     }
-    
-//    func configCell(user: User) {
-//            friendName.text =  user.name
-//           // friendAge.text = "Возраст: " + user.age
-//            if let avatar = user.avatar {
-//                friendAvatar.image = avatar
-//
-//            }
-//    func configCell(user: UserInfo) {
-        
+            
     func configCell(user: UserRealm) {
         
         friendName.text =  user.firstName + " " + user.lastName
-       // friendAge.text = "Возраст: " + user.age
-//        if let avatar = user.avatar {
-//            friendAvatar.image = avatar
-//
-//        }
-        //friendAvatar.image = user.photo
         
         let urlString = user.photo
         let urlAvatar = URL(string: urlString)
@@ -89,7 +63,5 @@ class MyFriendsTableViewCell: UITableViewCell {
         }
         saveUser = user
     }
-    
-    
-    
+
 }

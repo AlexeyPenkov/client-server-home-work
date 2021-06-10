@@ -22,15 +22,23 @@ class NewsTableViewCell: UITableViewCell {
     func clearCell() {
         titleLabel.text = nil
         autorLabel.text = nil
-        //likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+
     }
     
-    func configCell(news: NewsStruct){
-        titleLabel.text = news.title
-        autorLabel.text = news.autor.name
-        if let image = news.image {
-            imageNew.image = image
+    func configCell(news: ItemsNews){
+        titleLabel.text = news.text
+        //autorLabel.text = news.autor.name
+        let url = news.attachments?.first?.photo?.sizes.first
+        let urlString = url?.url
+        
+        let urlAvatar = URL(string: urlString!)
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: urlAvatar!)
+            DispatchQueue.main.async {
+                self.imageNew.image = UIImage(data: data!)
+            }
         }
+      
     }
     
     override func awakeFromNib() {

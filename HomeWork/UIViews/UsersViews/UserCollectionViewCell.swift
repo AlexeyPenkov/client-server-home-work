@@ -57,28 +57,9 @@ class UserCollectionViewCell: UICollectionViewCell {
                 self.foto.image = UIImage(data: data!)
             }
         }
-//        labelLikeCounter.text = String(likeCount)
-//        labelDisCounter.text = String(dislikeCount)
-//        
-//        likeButton.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
-//        likeButton.tintColor = UIColor.black
-//        
-//        dislikeButton.setImage(UIImage(systemName: "hand.thumbsdown"), for: .normal)
-//        dislikeButton.tintColor = UIColor.black
         
         saveUserFoto = userFoto
-        //let myStackView = UIStackView(frame: CGRect(x: foto.frame.maxX-100.0, y: foto.frame.maxY-15.0, width: 100.0, height: 15.0))
-        
-        //let myLabel = UILabel(frame: CGRect(x: myStackView.frame.minX, y: myStackView.frame.minY, width: 50.0, height: 14.0))
-        //let myLabel = UILabel(frame: CGRect(x: foto.frame.maxX-100.0, y: foto.frame.maxY-15.0, width: 100.0, height: 15.0))
-
-        //myLabel.text = "лайки"
-     
-       // let heartView = HeartView()
-        
-        //self.foto.addSubview(myLabel)
-        //self.foto.addSubview(heartView)
-       // self.foto.addSubview(buttonLike)
+       
     }
     
     @IBAction func pressLikeButton(_ sender: Any) {

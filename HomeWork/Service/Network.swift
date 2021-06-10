@@ -16,12 +16,13 @@ class Network: NSObject {
     let token = Session.shared.token
     let userID = Session.shared.userID
     
-    var photoArray = [Photo]()
+    //var photoArray = [Photo]()
     
     var headSearchResponse: StructUserPhoto?
+    
     //Подготовка запроса пользователей (друзей)
     //MARK: - getFriendsList
-    func getFriendsList() ->URLRequest{
+    func getFriendsRequest() ->URLRequest{
         
         var requestUlr: URLRequest
         var params = [URLQueryItem]()
@@ -34,6 +35,27 @@ class Network: NSObject {
         requestUlr = prepareURLRequest(method: "friends.get", params: params)
         return requestUlr
 
+    }
+    
+    func getFriends(complition: @escaping ([UserInfo]) -> ()) {
+        
+        var tempArr = [UserInfo]()
+        let request =  getFriendsRequest()
+       
+        requestUsers(request: request) { result in
+            switch result {
+            case .success(let searchResponse):
+                tempArr = searchResponse.response.items
+                DispatchQueue.main.async {
+                    complition(tempArr)
+                }
+                
+//                self?.funcForRealm.writeUserToRealm(response: searchResponse.response)
+//                self?.friedsListTableView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     func prepareURLRequest(method: String, params: [URLQueryItem]) ->URLRequest {
@@ -108,7 +130,7 @@ class Network: NSObject {
     
     //Запрос сообществ
     //MARK: - getCommunityList
-    func getCommunityList(selection: String?) -> URLRequest {
+    func getCommunityRequest(selection: String?) -> URLRequest {
         var requestUlr: URLRequest
         var params = [URLQueryItem]()
         
@@ -120,8 +142,26 @@ class Network: NSObject {
         return requestUlr
     }
     
+    func getOthersCommunity(selection: String?, complition: @escaping ([CommunityInfo])->()) {
+        var tempArr = [CommunityInfo]()
+        let request = getCommunityRequest(selection: selection)
+        
+        requestCommunity(request: request) { result in
+            switch result {
+            case .success(let searchResponse):
+                
+                tempArr = searchResponse.response.items
+                DispatchQueue.main.async {
+                    complition(tempArr)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     //запрос сообществ текущего пользователя
-    func getCommunityForCurrentUserList(selection: String?) -> URLRequest {
+    func getCommunityForCurrentUserRequest(selection: String?) -> URLRequest {
         var requestUlr: URLRequest
         var params = [URLQueryItem]()
         
@@ -132,6 +172,24 @@ class Network: NSObject {
         
         requestUlr = prepareURLRequest(method: "groups.get", params: params)
         return requestUlr
+    }
+    
+    func getCommunity(complition: @escaping ([CommunityInfo])->()) {
+        var tempArr = [CommunityInfo]()
+        let request = getCommunityForCurrentUserRequest(selection: nil)
+        
+        requestCommunity(request: request) { result in
+            switch result {
+            case .success(let searchResponse):
+                
+                tempArr = searchResponse.response.items
+                DispatchQueue.main.async {
+                    complition(tempArr)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     //MARK: - requestCommunity
@@ -156,17 +214,12 @@ class Network: NSObject {
                 
                 do {
                     let usersList = try decoder.decode(HeadResponseCommunity.self, from: data)
-//                    complition(usersList, nil)
                     complition(.success(usersList))
                 } catch let jsonError {
                     print("Failed to decode JSON", jsonError)
-//                    complition(nil, jsonError)
                     complition(.failure(jsonError))
                 }
                 
-                
-//                let someString = String(data: data, encoding: .utf8)
-//                print(someString ?? "no data")
             }
 
         }.resume()
@@ -190,7 +243,7 @@ class Network: NSObject {
     }
     
     
-    func requestUserPhotos(request: URLRequest, complition: @escaping (Result<HeadResponseUserPhotos, Error>)-> Void) {
+    func requestUserPhotos(request: URLRequest, complition: @escaping (Result<StructUserPhoto, Error>)-> Void) {
         let configaration = URLSessionConfiguration.default
         let session = URLSession(configuration: configaration)
     
@@ -210,22 +263,13 @@ class Network: NSObject {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 
                 do {
-                    let usersList = try decoder.decode(HeadResponseUserPhotos.self, from: data)
-//                    complition(usersList, nil)
+                    let usersList = try decoder.decode(StructUserPhoto.self, from: data)
                     complition(.success(usersList))
                 } catch let jsonError {
                     print("Failed to decode JSON", jsonError)
-//                    complition(nil, jsonError)
                     complition(.failure(jsonError))
                 }
-                
-                
-//                let someString = String(data: data, encoding: .utf8)
-//                print(someString ?? "no data")
-                
-                
-                
-                
+        
             }
 
         }.resume()
@@ -236,33 +280,47 @@ class Network: NSObject {
         
 //        let url = "https://api.vk.com/method/photos.get?access_token=\(token)&v=5.131&owner_id=\(String(userId))&albub_id=wall&extended=1"
         
-        let url = "https://api.vk.com/method/photos.get?access_token=\(token)&owner_id=\(String(userId))&album_id=wall&rev=0&extended=1&photo_sizes=0&v=5.131"
+        let url = "https://api.vk.com/method/photos.getAll?access_token=\(token)&owner_id=\(String(userId))&album_id=wall&rev=0&extended=1&photo_sizes=0&v=5.131"
         
-//        AF.request(url, method: .get).responseData { response in
-//            guard let data = response.value else { return }
-//
-//            //print(data.prettyJSON as Any)
-//
-//            self.headSearchResponse = try? JSONDecoder().decode(StructUserPhoto.self, from: data)
-
-//            headSearchResponse?.response.items.forEach({ item in
-//                item.sizes.forEach({ urlString in
-//                    let photoItem = Photo(url: urlString.url)
-//                    self.photoArray.append(photoItem)
-//                })
-//            })
-            
-//            headSearchResponse?.items.forEach({ photo in
-//                photo.sizes.forEach { urlString in
-//                photoArray.append(urlString)
-//                }
-//
-//            })
-            
-//            print(self.photoArray.count)
-        
-         
         return url
         
+    }
+    
+    func getUserFoto(userId: Int, complition: @escaping ([String]) -> ()) {
+        let urlRequest = requestUserPhotioForAlomofire(userId: userId)
+        var photoArray = [String]()
+        
+        AF.request(urlRequest, method: .get).responseData { response in
+            guard let data = response.value else { return }
+            //print(data.prettyJSON)
+            guard let searchRequest = try? JSONDecoder().decode(StructUserPhoto.self, from: data) else { return }
+            
+            for item in searchRequest.response.items {
+                if let url = item.sizes.first?.url {
+                    photoArray.append(url)
+                }
+                
+            }
+            
+            DispatchQueue.main.async {
+                complition(photoArray)
+            }
+        }
+    }
+    
+    func getNews(complition: @escaping ([ItemsNews])->()) {
+        
+        var newsArr = [ItemsNews]()
+        
+        let url = "https://api.vk.com/method/newsfeed.get?access_token=\(token)&filters=post,photo&return_banned=0&v=5.131"
+        AF.request(url, method: .get).responseData { response in
+            guard let data = response.value else { return }
+            print(data.prettyJSON)
+            guard let searchRequest = try? JSONDecoder().decode(NewsHeadResponse.self, from: data) else { return }
+            
+            newsArr = searchRequest.response.items     
+        }
+        
+        complition(newsArr)
     }
 }

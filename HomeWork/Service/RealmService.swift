@@ -8,15 +8,15 @@
 import Foundation
 import RealmSwift
 
-class FuncForWorkingWithRealm: NSObject {
+class RealmService: NSObject {
     
     //MARK: - function to write and read Users from Realm
     
-    func writeUserToRealm(response: SearchResponseUsers) {
+    func writeUserInfoToRealm(userArray: [UserInfo]) {
         
         var tempArray = [UserRealm]()
         
-        for item in response.items {
+        for item in userArray {
             let userRealm = UserRealm()
             
             
@@ -26,17 +26,8 @@ class FuncForWorkingWithRealm: NSObject {
             userRealm.photo = item.photo!
             
             tempArray.append(userRealm)
-            //получаем фото из строки url
-//            let urlString = item.photo
-//            let urlAvatar = URL(string: urlString!)
-//            DispatchQueue.global().async {
-//                let data = try? Data(contentsOf: urlAvatar!)
-//                DispatchQueue.main.async {
-//                    userRealm.photo = UIImage(data: data!)
-//                }
-//            }
             
-            }
+        }
         let realm = try! Realm()
 
         try? realm.write {
@@ -64,10 +55,10 @@ class FuncForWorkingWithRealm: NSObject {
     
     //MARK: - function to write and read Groups from Realm
     
-    func writeGroupsFromRealm(response: SearchResponseCommunity) {
+    func writeGroupsInfoFromRealm(groupArray: [CommunityInfo]) {
         var tempArray = [GroupRealm]()
         
-        for item in response.items {
+        for item in groupArray {
             let groupRealm = GroupRealm()
             
             groupRealm.id = item.id
@@ -100,10 +91,29 @@ class FuncForWorkingWithRealm: NSObject {
     }
     
     //MARK: - function to write and read OtherGropus from Realm
-    func writeOtherGroupsFromRealm(response: SearchResponseCommunity) {
+//    func writeOtherGroupsFromRealm(response: SearchResponseCommunity) {
+//        var tempArray = [OtherGroupRealm]()
+//        
+//        for item in response.items {
+//            let groupRealm = OtherGroupRealm()
+//            
+//            groupRealm.id = item.id
+//            groupRealm.name = item.name
+//            groupRealm.photo = item.photo_100 ?? ""
+//            
+//            tempArray.append(groupRealm)
+//        }
+//        
+//        let realm = try! Realm()
+//        try? realm.write {
+//            realm.add(tempArray)
+//        }
+//    }
+    
+    func writeOtherGroupsInfoFromRealm(otherGroupArray: [CommunityInfo]) {
         var tempArray = [OtherGroupRealm]()
         
-        for item in response.items {
+        for item in otherGroupArray {
             let groupRealm = OtherGroupRealm()
             
             groupRealm.id = item.id
@@ -136,14 +146,34 @@ class FuncForWorkingWithRealm: NSObject {
     }
     
     //MARK: - function to write and read Photo from Realm
-    func writePhotosFromRealm(response: ResponsePhoto) {
+//    func writePhotosFromRealm(response: ResponsePhoto) {
+//        var tempArray = [PhotosRealm]()
+//        
+//       //guard let response = response else { return }
+//        
+//        for item in response.photos {
+//            let groupRealm = PhotosRealm()
+//            
+//            groupRealm.userId = response.items.first?.ownerID ?? 0
+//            groupRealm.photo = item
+//            
+//            tempArray.append(groupRealm)
+//        }
+//        
+//        let realm = try! Realm()
+//        try? realm.write {
+//            realm.add(tempArray)
+//        }
+//    }
+    
+    func writePhotosFromRealm(userId: Int, photoArray: [String]) {
         var tempArray = [PhotosRealm]()
         
-        
-        for item in response.photos {
+        for item in photoArray {
             let groupRealm = PhotosRealm()
             
-            groupRealm.userId = response.items.first?.ownerID ?? 0
+            groupRealm.userId = userId
+                
             groupRealm.photo = item
             
             tempArray.append(groupRealm)
