@@ -17,7 +17,7 @@ class GroupTableViewController: UITableViewController {
     
     var headSearchResposne: SearchResponseCommunity? = nil
     
-    let funcForRealm = FuncForWorkingWithRealm()
+    let funcForRealm = RealmService()
     var groupArr = [GroupRealm]()
   
     override func viewDidLoad() {
@@ -27,23 +27,11 @@ class GroupTableViewController: UITableViewController {
         groupArr = funcForRealm.readGroupsFromRealm()
         
         if groupArr.count == 0 {
-            let request = Network().getCommunityForCurrentUserList(selection: nil)
-            Network().requestCommunity(request: request) { [weak self](result) in
-                switch result {
-                case .success(let searchResponse):
-//                    self?.headSearchResposne = searchResponse.response
-//                    self?.groupTableView.reloadData()
-    //                searchResponse.response.items.map { user in
-    //                    self.usersFromVK.append(user)
-    //                }
-                    self?.funcForRealm.writeGroupsFromRealm(response: searchResponse.response)
-                case .failure(let error):
-                    print(error)
-                }
+            Network().getCommunity { [weak self] (item) in
+                self?.funcForRealm.writeGroupsInfoFromRealm(groupArray: item)
             }
         }
         
-        //self.tableView.register(UINib(nibName: "GroupTableViewCell", bundle: nil), forCellReuseIdentifier: groupCellIdentifier)
         groupTableView.register(UINib(nibName: "GroupTableViewCell", bundle: nil), forCellReuseIdentifier: groupCellIdentifier)
      
         self.groupTableView.reloadData()
@@ -63,7 +51,6 @@ class GroupTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-//        return headSearchResposne?.items.count ?? 0
         return groupArr.count
     }
 
@@ -71,16 +58,13 @@ class GroupTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: groupCellIdentifier, for: indexPath) as? GroupTableViewCell else { return UITableViewCell() }
 
-        //let community = headSearchResposne?.items[indexPath.row]
-        //cell.configCell(group: community!)
-
         cell.configCell(group: groupArr[indexPath.row])
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        //DataStorage.share.groupsArray.remove(at: indexPath.row)
+        
         self.tableView.reloadData()
     }
   

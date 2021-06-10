@@ -19,9 +19,8 @@ class UserCollectionViewController: UICollectionViewController {
     
     var searchRequest: StructUserPhoto?
    
-    var photoArray = [Photo]()
     var photoArrayRealm = [PhotosRealm]()
-    let funcForRealm = FuncForWorkingWithRealm()
+    let funcForRealm = RealmService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,56 +31,11 @@ class UserCollectionViewController: UICollectionViewController {
         }
     
         if photoArrayRealm.count == 0 {
-            urlRequest = Network().requestUserPhotioForAlomofire(userId: currentIndex)
-            
-            AF.request(urlRequest, method: .get).responseData { [self] response in
-                guard let data = response.value else { return }
-                
-                self.searchRequest = try? JSONDecoder().decode(StructUserPhoto.self, from: data)
-                
-                funcForRealm.writePhotosFromRealm(response: self.searchRequest!.response)
-            
-//            self.photoArray.removeAll()
-//
-//            self.searchRequest?.response.items.forEach({ item in
-//                item.sizes.forEach { size in
-//                    //print("Здесь должен быть ЮРЛ \(size.url)")
-//                    if size.width == 320 {
-//                        let photoItem = Photo(url: size.url)
-//                        self.photoArray.append(photoItem)
-//                    }
-////                    print(self.photoArray.count)
-//                }
-//            })
-            
-               
-                
+            Network().getUserFoto(userId: currentIndex) { [weak self] item in
+                self?.funcForRealm.writePhotosFromRealm(userId: currentIndex, photoArray: item)
             }
         }
-//        let request = Network().getPhotos(userId: currentIndex)
-//        
-//        Network().requestUserPhotos(request: request) { [weak self](result) in
-//            switch result {
-//            case .success(let searchResponse):
-//                self?.headSearchResponse = searchResponse.response
-//                //self?.headSearchResposne = searchResponse.response
-//                self?.collectionView.reloadData()
-////                searchResponse.response.items.map { user in
-////                    self.usersFromVK.append(user)
-////                }
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-//        
-//        photoArray.removeAll()
-//        
-//        headSearchResponse?.items.forEach({ photo in
-//            photo.sizes.forEach { urlString in
-//            photoArray.append(urlString)
-//            }
-//            
-//        })
+
         self.collectionView.register(UINib(nibName: "UserCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: userFotoCellIdentifier)
         
         self.collectionView.reloadData()

@@ -14,22 +14,17 @@
 		BC2F07D1262044E600180B26 /* GroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2F07CF262044E600180B26 /* GroupTableViewCell.xib */; };
 		BC2F07D92620464F00180B26 /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F07D72620464F00180B26 /* UserCollectionViewCell.swift */; };
 		BC2F07DA2620464F00180B26 /* UserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2F07D82620464F00180B26 /* UserCollectionViewCell.xib */; };
-		BC2F07DE2622BDE200180B26 /* User(no used).swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F07DD2622BDE200180B26 /* User(no used).swift */; };
-		BC2F07E12622C0AC00180B26 /* Group(no used).swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F07E02622C0AB00180B26 /* Group(no used).swift */; };
-		BC2F07E42622C12000180B26 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F07E32622C12000180B26 /* DataStorage.swift */; };
 		BC2F07EB26235EF700180B26 /* GroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F07EA26235EF700180B26 /* GroupTableViewController.swift */; };
 		BC35B0D2266737A9004FA2BB /* UsersRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D1266737A9004FA2BB /* UsersRealm.swift */; };
 		BC35B0D426673891004FA2BB /* GroupRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D326673891004FA2BB /* GroupRealm.swift */; };
 		BC35B0D626673919004FA2BB /* PhotosRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D526673919004FA2BB /* PhotosRealm.swift */; };
-		BC35B0D82668791C004FA2BB /* FuncForWorkingWithRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D72668791C004FA2BB /* FuncForWorkingWithRealm.swift */; };
+		BC35B0D82668791C004FA2BB /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D72668791C004FA2BB /* RealmService.swift */; };
 		BC35B0DA26688278004FA2BB /* OtherGroupRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D926688278004FA2BB /* OtherGroupRealm.swift */; };
-		BC5D595826490B0400D50529 /* MyFirstCustromSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5D595726490B0400D50529 /* MyFirstCustromSegue.swift */; };
 		BC5D5A57265B825700D50529 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5D5A56265B825700D50529 /* Session.swift */; };
 		BC8C30BE265E175200C91E23 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C30BD265E175200C91E23 /* AuthViewController.swift */; };
 		BC8C30C1265F5A4400C91E23 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C30C0265F5A4400C91E23 /* Network.swift */; };
 		BC8C30C3265F659500C91E23 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C30C2265F659500C91E23 /* User.swift */; };
 		BC8C30C72660BEC100C91E23 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C30C62660BEC100C91E23 /* Group.swift */; };
-		BC8C30C92660D69400C91E23 /* SearchResponseUserPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C30C82660D69400C91E23 /* SearchResponseUserPhotos.swift */; };
 		BC8C30D62664BD8800C91E23 /* PrettyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C30D52664BD8800C91E23 /* PrettyJSON.swift */; };
 		BC8C30D92664C1BF00C91E23 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C30D82664C1BF00C91E23 /* Photo.swift */; };
 		BC9FF9AF26249DF000DD0AE6 /* OtherGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9FF9AE26249DF000DD0AE6 /* OtherGroupTableViewController.swift */; };
@@ -39,9 +34,7 @@
 		BCBE6B302619A1850062FAED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCBE6B2E2619A1850062FAED /* Main.storyboard */; };
 		BCBE6B322619A1860062FAED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCBE6B312619A1860062FAED /* Assets.xcassets */; };
 		BCBE6B352619A1860062FAED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCBE6B332619A1860062FAED /* LaunchScreen.storyboard */; };
-		BCBE6B3F2619A2420062FAED /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE6B3E2619A2420062FAED /* LoginFormController.swift */; };
 		BCE275D02635C714005A326D /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE275CF2635C714005A326D /* News.swift */; };
-		BCE7224A26317DCF005D4817 /* Photo(no used).swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7224926317DCF005D4817 /* Photo(no used).swift */; };
 		BCE7224E2635B503005D4817 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE7224D2635B503005D4817 /* NewsTableViewController.swift */; };
 		BCE722532635B7DA005D4817 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE722512635B7DA005D4817 /* NewsTableViewCell.swift */; };
 		BCE722542635B7DA005D4817 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE722522635B7DA005D4817 /* NewsTableViewCell.xib */; };
@@ -61,36 +54,29 @@
 		BC2F07CF262044E600180B26 /* GroupTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupTableViewCell.xib; sourceTree = "<group>"; };
 		BC2F07D72620464F00180B26 /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
 		BC2F07D82620464F00180B26 /* UserCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCollectionViewCell.xib; sourceTree = "<group>"; };
-		BC2F07DD2622BDE200180B26 /* User(no used).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User(no used).swift"; sourceTree = "<group>"; };
-		BC2F07E02622C0AB00180B26 /* Group(no used).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Group(no used).swift"; sourceTree = "<group>"; };
-		BC2F07E32622C12000180B26 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		BC2F07EA26235EF700180B26 /* GroupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewController.swift; sourceTree = "<group>"; };
 		BC35B0D1266737A9004FA2BB /* UsersRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRealm.swift; sourceTree = "<group>"; };
 		BC35B0D326673891004FA2BB /* GroupRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRealm.swift; sourceTree = "<group>"; };
 		BC35B0D526673919004FA2BB /* PhotosRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRealm.swift; sourceTree = "<group>"; };
-		BC35B0D72668791C004FA2BB /* FuncForWorkingWithRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncForWorkingWithRealm.swift; sourceTree = "<group>"; };
+		BC35B0D72668791C004FA2BB /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		BC35B0D926688278004FA2BB /* OtherGroupRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherGroupRealm.swift; sourceTree = "<group>"; };
-		BC5D595726490B0400D50529 /* MyFirstCustromSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFirstCustromSegue.swift; sourceTree = "<group>"; };
 		BC5D5A56265B825700D50529 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		BC8C30BD265E175200C91E23 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		BC8C30C0265F5A4400C91E23 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		BC8C30C2265F659500C91E23 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BC8C30C62660BEC100C91E23 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
-		BC8C30C82660D69400C91E23 /* SearchResponseUserPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponseUserPhotos.swift; sourceTree = "<group>"; };
 		BC8C30D52664BD8800C91E23 /* PrettyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrettyJSON.swift; sourceTree = "<group>"; };
 		BC8C30D82664C1BF00C91E23 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		BC9FF9AE26249DF000DD0AE6 /* OtherGroupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherGroupTableViewController.swift; sourceTree = "<group>"; };
 		BC9FF9B826283BB900DD0AE6 /* UserCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewController.swift; sourceTree = "<group>"; };
-		BCBE6B252619A1850062FAED /* lesson1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lesson1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCBE6B252619A1850062FAED /* HomeWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCBE6B282619A1850062FAED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCBE6B2A2619A1850062FAED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BCBE6B2F2619A1850062FAED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCBE6B312619A1860062FAED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCBE6B342619A1860062FAED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCBE6B362619A1860062FAED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BCBE6B3E2619A2420062FAED /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
 		BCE275CF2635C714005A326D /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
-		BCE7224926317DCF005D4817 /* Photo(no used).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo(no used).swift"; sourceTree = "<group>"; };
 		BCE7224D2635B503005D4817 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		BCE722512635B7DA005D4817 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		BCE722522635B7DA005D4817 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
@@ -135,19 +121,50 @@
 				BC8C30C2265F659500C91E23 /* User.swift */,
 				BC8C30C62660BEC100C91E23 /* Group.swift */,
 				BC8C30D82664C1BF00C91E23 /* Photo.swift */,
+				BCE275CF2635C714005A326D /* News.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BC35B0E026709A2E004FA2BB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BC2F07DC2622BDBF00180B26 /* Model */,
+				BC8C30C0265F5A4400C91E23 /* Network.swift */,
+				BC35B0D72668791C004FA2BB /* RealmService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		BC35B0E126709A8C004FA2BB /* UIViews */ = {
+			isa = PBXGroup;
+			children = (
+				BC8C30BC265E173200C91E23 /* Authorize */,
+				BCE7224C2635B4CA005D4817 /* NewsTabelView */,
+				BC9FF9B426282A8600DD0AE6 /* UsersViews */,
+				BC9FF9B526282B1300DD0AE6 /* GroupsViews */,
+			);
+			path = UIViews;
+			sourceTree = "<group>";
+		};
+		BC35B0E226709B3D004FA2BB /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				BC35B0E326709B61004FA2BB /* Database */,
+				BC5D5A54265B81DA00D50529 /* Singleton */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		BC35B0E326709B61004FA2BB /* Database */ = {
+			isa = PBXGroup;
+			children = (
 				BC35B0D1266737A9004FA2BB /* UsersRealm.swift */,
 				BC35B0D326673891004FA2BB /* GroupRealm.swift */,
 				BC35B0D926688278004FA2BB /* OtherGroupRealm.swift */,
 				BC35B0D526673919004FA2BB /* PhotosRealm.swift */,
-				BC35B0D72668791C004FA2BB /* FuncForWorkingWithRealm.swift */,
-				BC8C30C82660D69400C91E23 /* SearchResponseUserPhotos.swift */,
-				BC2F07DD2622BDE200180B26 /* User(no used).swift */,
-				BCE7224926317DCF005D4817 /* Photo(no used).swift */,
-				BC2F07E02622C0AB00180B26 /* Group(no used).swift */,
-				BCE275CF2635C714005A326D /* News.swift */,
-				BC2F07E32622C12000180B26 /* DataStorage.swift */,
 			);
-			path = Model;
+			path = Database;
 			sourceTree = "<group>";
 		};
 		BC5D5A52265B813E00D50529 /* App */ = {
@@ -194,14 +211,6 @@
 			path = Authorize;
 			sourceTree = "<group>";
 		};
-		BC8C30BF265F5A2800C91E23 /* lesson-2 */ = {
-			isa = PBXGroup;
-			children = (
-				BC8C30C0265F5A4400C91E23 /* Network.swift */,
-			);
-			path = "lesson-2";
-			sourceTree = "<group>";
-		};
 		BC8C30D72664BD8E00C91E23 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,7 +249,7 @@
 		BCBE6B1C2619A1850062FAED = {
 			isa = PBXGroup;
 			children = (
-				BCBE6B272619A1850062FAED /* lesson1 */,
+				BCBE6B272619A1850062FAED /* HomeWork */,
 				BCBE6B262619A1850062FAED /* Products */,
 				958331B6B295F582630008B9 /* Pods */,
 				2AAF1A3E379012C3519240D6 /* Frameworks */,
@@ -250,28 +259,22 @@
 		BCBE6B262619A1850062FAED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BCBE6B252619A1850062FAED /* lesson1.app */,
+				BCBE6B252619A1850062FAED /* HomeWork.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BCBE6B272619A1850062FAED /* lesson1 */ = {
+		BCBE6B272619A1850062FAED /* HomeWork */ = {
 			isa = PBXGroup;
 			children = (
-				BC8C30BF265F5A2800C91E23 /* lesson-2 */,
-				BC8C30BC265E173200C91E23 /* Authorize */,
+				BC35B0E226709B3D004FA2BB /* Storage */,
+				BC35B0E026709A2E004FA2BB /* Service */,
+				BC35B0E126709A8C004FA2BB /* UIViews */,
 				BC5D5A52265B813E00D50529 /* App */,
 				BC5D5A53265B816100D50529 /* Resources */,
 				BC8C30D72664BD8E00C91E23 /* Extension */,
-				BC2F07DC2622BDBF00180B26 /* Model */,
-				BC9FF9B526282B1300DD0AE6 /* GroupsViews */,
-				BC9FF9B426282A8600DD0AE6 /* UsersViews */,
-				BCE7224C2635B4CA005D4817 /* NewsTabelView */,
-				BCBE6B3E2619A2420062FAED /* LoginFormController.swift */,
-				BC5D5A54265B81DA00D50529 /* Singleton */,
-				BC5D595726490B0400D50529 /* MyFirstCustromSegue.swift */,
 			);
-			path = lesson1;
+			path = HomeWork;
 			sourceTree = "<group>";
 		};
 		BCE7224C2635B4CA005D4817 /* NewsTabelView */ = {
@@ -287,9 +290,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BCBE6B242619A1850062FAED /* lesson1 */ = {
+		BCBE6B242619A1850062FAED /* HomeWork */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BCBE6B392619A1860062FAED /* Build configuration list for PBXNativeTarget "lesson1" */;
+			buildConfigurationList = BCBE6B392619A1860062FAED /* Build configuration list for PBXNativeTarget "HomeWork" */;
 			buildPhases = (
 				F47D3804AC190D45C814A4FA /* [CP] Check Pods Manifest.lock */,
 				BCBE6B212619A1850062FAED /* Sources */,
@@ -301,9 +304,9 @@
 			);
 			dependencies = (
 			);
-			name = lesson1;
+			name = HomeWork;
 			productName = lesson1;
-			productReference = BCBE6B252619A1850062FAED /* lesson1.app */;
+			productReference = BCBE6B252619A1850062FAED /* HomeWork.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -320,7 +323,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BCBE6B202619A1850062FAED /* Build configuration list for PBXProject "lesson1" */;
+			buildConfigurationList = BCBE6B202619A1850062FAED /* Build configuration list for PBXProject "HomeWork" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -333,7 +336,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BCBE6B242619A1850062FAED /* lesson1 */,
+				BCBE6B242619A1850062FAED /* HomeWork */,
 			);
 		};
 /* End PBXProject section */
@@ -405,8 +408,6 @@
 			files = (
 				BC8C30BE265E175200C91E23 /* AuthViewController.swift in Sources */,
 				BC8C30D92664C1BF00C91E23 /* Photo.swift in Sources */,
-				BCE7224A26317DCF005D4817 /* Photo(no used).swift in Sources */,
-				BCBE6B3F2619A2420062FAED /* LoginFormController.swift in Sources */,
 				BCBE6B292619A1850062FAED /* AppDelegate.swift in Sources */,
 				BCE7224E2635B503005D4817 /* NewsTableViewController.swift in Sources */,
 				BCBE6B2B2619A1850062FAED /* SceneDelegate.swift in Sources */,
@@ -414,24 +415,19 @@
 				BC35B0D626673919004FA2BB /* PhotosRealm.swift in Sources */,
 				BCFA86A626308780009A8FCC /* ControlTableViewCell.swift in Sources */,
 				BC9FF9B926283BB900DD0AE6 /* UserCollectionViewController.swift in Sources */,
-				BC5D595826490B0400D50529 /* MyFirstCustromSegue.swift in Sources */,
 				BCE722532635B7DA005D4817 /* NewsTableViewCell.swift in Sources */,
-				BC2F07E42622C12000180B26 /* DataStorage.swift in Sources */,
 				BCFA86A1263079E5009A8FCC /* FriendsListViewController.swift in Sources */,
 				BC2F07D92620464F00180B26 /* UserCollectionViewCell.swift in Sources */,
 				BC35B0D426673891004FA2BB /* GroupRealm.swift in Sources */,
-				BC8C30C92660D69400C91E23 /* SearchResponseUserPhotos.swift in Sources */,
 				BC35B0D2266737A9004FA2BB /* UsersRealm.swift in Sources */,
 				BC2F07C42620432A00180B26 /* MyFriendsTableViewCell.swift in Sources */,
 				BC35B0DA26688278004FA2BB /* OtherGroupRealm.swift in Sources */,
 				BC5D5A57265B825700D50529 /* Session.swift in Sources */,
 				BC8C30C72660BEC100C91E23 /* Group.swift in Sources */,
 				BC8C30D62664BD8800C91E23 /* PrettyJSON.swift in Sources */,
-				BC2F07E12622C0AC00180B26 /* Group(no used).swift in Sources */,
 				BC2F07D0262044E600180B26 /* GroupTableViewCell.swift in Sources */,
-				BC35B0D82668791C004FA2BB /* FuncForWorkingWithRealm.swift in Sources */,
+				BC35B0D82668791C004FA2BB /* RealmService.swift in Sources */,
 				BCFA86B026310F3D009A8FCC /* ControlFriendListTableView.swift in Sources */,
-				BC2F07DE2622BDE200180B26 /* User(no used).swift in Sources */,
 				BC8C30C3265F659500C91E23 /* User.swift in Sources */,
 				BCE275D02635C714005A326D /* News.swift in Sources */,
 				BC2F07EB26235EF700180B26 /* GroupTableViewController.swift in Sources */,
@@ -585,7 +581,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6577GL836W;
-				INFOPLIST_FILE = lesson1/Resources/Info.plist;
+				INFOPLIST_FILE = HomeWork/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -605,7 +601,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6577GL836W;
-				INFOPLIST_FILE = lesson1/Resources/Info.plist;
+				INFOPLIST_FILE = HomeWork/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -620,7 +616,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BCBE6B202619A1850062FAED /* Build configuration list for PBXProject "lesson1" */ = {
+		BCBE6B202619A1850062FAED /* Build configuration list for PBXProject "HomeWork" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BCBE6B372619A1860062FAED /* Debug */,
@@ -629,7 +625,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BCBE6B392619A1860062FAED /* Build configuration list for PBXNativeTarget "lesson1" */ = {
+		BCBE6B392619A1860062FAED /* Build configuration list for PBXNativeTarget "HomeWork" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BCBE6B3A2619A1860062FAED /* Debug */,
