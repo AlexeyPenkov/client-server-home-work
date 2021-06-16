@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class OtherGroupTableViewController: UITableViewController {
     
@@ -22,14 +23,34 @@ class OtherGroupTableViewController: UITableViewController {
     var headSearchResposne: SearchResponseCommunity? = nil
     
     let funcForRealm = RealmService()
-    var otherGroupArr = [OtherGroupRealm]()
+    
+    var otherGroupArr: Results<OtherGroupRealm>? {
+        didSet {
+            token = otherGroupArr?.observe { changes in
+                switch changes {
+                case .initial(let results):
+                    print("Start modified: \(results)")
+                case .update(_, deletions: let deletions, insertions: let insertions, modifications: let modifications):
+                    self.tableView.reloadData()
+                case .error(let error):
+                    print("ERROR: \(error)")
+                }
+            }
+        }
+    }
+    
+    let realm = try! Realm()
+    
+    var token: NotificationToken?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        otherGroupArr = funcForRealm.readOtherGroupsFromRealm()
+        getOtherGroupsArray(searchIn: searchIn)
         
-        if otherGroupArr.count == 0 {
+        
+        if otherGroupArr?.count == 0 {
             Network().getOthersCommunity(selection: nil) { [weak self] (item) in
                 self?.funcForRealm.writeOtherGroupsInfoFromRealm(otherGroupArray: item)
             }
@@ -39,7 +60,6 @@ class OtherGroupTableViewController: UITableViewController {
         
         mySearch.delegate = self
        
-        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -51,46 +71,33 @@ class OtherGroupTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        
         if searchIn {
             return filteringGroupsArray.count
         } else {
-            return otherGroupArr.count
+            if let otherGroupArr = otherGroupArr {
+                return otherGroupArr.count
+            } else { return 0 }
+            
         }
+     
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: otherGroupCell, for: indexPath) as? GroupTableViewCell else { return UITableViewCell() }
-            
+         
         if searchIn {
+
             let group = filteringGroupsArray[indexPath.row]
-            cell.groupName.text = group.name
-                
-                //получаем фото из строки url
-                let urlString = group.photo
-                if let urlAvatar = URL(string: urlString) {
-                    DispatchQueue.global().async {
-                        let data = try? Data(contentsOf: urlAvatar)
-                        DispatchQueue.main.async {
-                            cell.groupAvatar.image = UIImage(data: data!)
-                        }
-                    }
-                }
+                cell.configCellOtherGroup(group: group)
+
         } else {
-            let group = otherGroupArr[indexPath.row]
-            cell.groupName.text = group.name
-                
-                //получаем фото из строки url
-                let urlString = group.photo
-                if let urlAvatar = URL(string: urlString) {
-                    DispatchQueue.global().async {
-                        let data = try? Data(contentsOf: urlAvatar)
-                        DispatchQueue.main.async {
-                            cell.groupAvatar.image = UIImage(data: data!)
-                        }
-                    }
-                }
+
+            if let group = otherGroupArr?[indexPath.row] {
+                cell.configCellOtherGroup(group: group)
+           }
         }
             
         
@@ -105,22 +112,30 @@ class OtherGroupTableViewController: UITableViewController {
 
 extension OtherGroupTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
+        filteringGroupsArray.removeAll()
         searchIn = true
+//        getOtherGroupsArray(searchIn: searchIn)
+        let otherGroupArr = realm.objects(OtherGroupRealm.self).filter({$0.name.prefix(searchText.count).lowercased() == searchText.lowercased()})
 
-        if otherGroupArr.count == 0 {
-            Network().getOthersCommunity(selection: searchText) { [weak self] (item) in
-                self?.funcForRealm.writeOtherGroupsInfoFromRealm(otherGroupArray: item)
-            }
-        } else {
-            filteringGroupsArray = otherGroupArr.filter({$0.name.prefix(searchText.count).lowercased() == searchText.lowercased()})
+        for item in otherGroupArr {
+            let itemGroup = OtherGroupRealm()
+            itemGroup.name = item.name
+            itemGroup.id = item.id
+            itemGroup.photo = item.photo
+            filteringGroupsArray.append(itemGroup)
         }
+        
         self.tableView.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchIn = false
+        filteringGroupsArray.removeAll()
         mySearch.text = ""
         self.tableView.reloadData()
+    }
+    
+    func getOtherGroupsArray(searchIn: Bool) {
+        otherGroupArr = realm.objects(OtherGroupRealm.self)
     }
 }

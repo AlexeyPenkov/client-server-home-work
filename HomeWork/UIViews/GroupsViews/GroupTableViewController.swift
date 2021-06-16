@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RealmSwift
+
 
 class GroupTableViewController: UITableViewController {
 
@@ -15,26 +17,39 @@ class GroupTableViewController: UITableViewController {
     
     let fromMyCommunityToFindCommunitySegue = "myCommunityToFIndCommunity"
     
-    var headSearchResposne: SearchResponseCommunity? = nil
-    
     let funcForRealm = RealmService()
-    var groupArr = [GroupRealm]()
   
+    let realm = try! Realm()
+    
+    var token: NotificationToken?
+    
+    var groupsRealm: Results<GroupRealm>? {
+        didSet {
+            token = groupsRealm?.observe { changes in
+                switch changes {
+                case .initial(let results):
+                    print("Start modified: \(results)")
+                case .update(_, deletions: let deletions, insertions: let insertions, modifications: let modifications):
+                    self.groupTableView.reloadData()
+                case .error(let error):
+                    print("ERROR: \(error)")
+                }
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //groupTableView.dataSource = self
-        groupArr = funcForRealm.readGroupsFromRealm()
-        
-        if groupArr.count == 0 {
+        groupsRealm = realm.objects(GroupRealm.self)
+                
+        if groupsRealm?.count == 0 {
             Network().getCommunity { [weak self] (item) in
                 self?.funcForRealm.writeGroupsInfoFromRealm(groupArray: item)
             }
         }
         
         groupTableView.register(UINib(nibName: "GroupTableViewCell", bundle: nil), forCellReuseIdentifier: groupCellIdentifier)
-     
-        self.groupTableView.reloadData()
     
     }
 
@@ -51,14 +66,19 @@ class GroupTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return groupArr.count
+        if let groups = groupsRealm {
+            return groups.count
+        } else { return 0 }
+       
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: groupCellIdentifier, for: indexPath) as? GroupTableViewCell else { return UITableViewCell() }
-
-        cell.configCell(group: groupArr[indexPath.row])
+        
+        if let group = groupsRealm?[indexPath.row] {
+            cell.configCell(group: group)
+        }
         
         return cell
     }

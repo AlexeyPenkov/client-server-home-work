@@ -12,7 +12,7 @@
         <!--Auth View Controller-->
         <scene sceneID="e9W-Ja-ybk">
             <objects>
-                <viewController id="Rl5-x2-lTp" customClass="AuthViewController" customModule="lesson1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Rl5-x2-lTp" customClass="AuthViewController" customModule="HomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Hh-rZ-bTw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,7 +47,7 @@
         <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginFormController" customModule="lesson1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginFormController" customModule="HomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -228,12 +228,12 @@
         <!--Мои кореша-->
         <scene sceneID="5Rs-ko-hVf">
             <objects>
-                <viewController id="UxH-kf-0P6" customClass="FriendsListViewController" customModule="lesson1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UxH-kf-0P6" customClass="FriendsListViewController" customModule="HomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qrB-K6-f0W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="ZO5-bA-LCq" customClass="ControlFriendListTableView" customModule="lesson1" customModuleProvider="target">
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="ZO5-bA-LCq" customClass="ControlFriendListTableView" customModule="HomeWork" customModuleProvider="target">
                                 <rect key="frame" x="394" y="150.5" width="20" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -261,7 +261,7 @@
                     <connections>
                         <outlet property="friedsListTableView" destination="5oY-gR-uxa" id="LVg-8L-zoG"/>
                         <outlet property="myControl" destination="ZO5-bA-LCq" id="Ps6-wr-dbN"/>
-                        <segue destination="bj4-uN-N7P" kind="show" identifier="fromUserTableToCollection" customClass="MyFirstCustromSegue" customModule="lesson1" customModuleProvider="target" id="tLz-0D-vX8"/>
+                        <segue destination="bj4-uN-N7P" kind="show" identifier="fromUserTableToCollection" id="37t-Ch-rEu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oUf-F0-69S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -271,7 +271,7 @@
         <!--Мои тусовки-->
         <scene sceneID="suk-j0-Oy0">
             <objects>
-                <tableViewController id="nBf-wY-oUp" customClass="GroupTableViewController" customModule="lesson1" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="nBf-wY-oUp" customClass="GroupTableViewController" customModule="HomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YeE-gt-IsS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -323,7 +323,7 @@
         <!--Other Group Table View Controller-->
         <scene sceneID="jyD-fY-EwH">
             <objects>
-                <tableViewController id="eW9-E8-26f" customClass="OtherGroupTableViewController" customModule="lesson1" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="eW9-E8-26f" customClass="OtherGroupTableViewController" customModule="HomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kc9-fY-ZBX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -360,7 +360,7 @@
         <!--Альбом-->
         <scene sceneID="vEf-MP-REn">
             <objects>
-                <collectionViewController id="bj4-uN-N7P" customClass="UserCollectionViewController" customModule="lesson1" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="bj4-uN-N7P" customClass="UserCollectionViewController" customModule="HomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pYC-3e-moq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -413,7 +413,7 @@
         <!--Слухи-->
         <scene sceneID="fwq-eJ-56t">
             <objects>
-                <tableViewController id="R5b-eL-Kra" customClass="NewsTableViewController" customModule="lesson1" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="R5b-eL-Kra" customClass="NewsTableViewController" customModule="HomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FoU-kk-92e">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
