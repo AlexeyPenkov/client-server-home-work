@@ -32,7 +32,6 @@ class GroupTableViewCell: UITableViewCell {
         clearCell()
     }
     
-//    func configCell(group: CommunityInfo) {
     func configCell(group: GroupRealm) {
         
         groupName.text = group.name
@@ -46,9 +45,22 @@ class GroupTableViewCell: UITableViewCell {
                 self.groupAvatar.image = UIImage(data: data!)
             }
         }
-//        if let avatar = group.avatar {
-//           groupAvatar.image = avatar
-//        }
-        saveItem = group
+       saveItem = group
+    }
+    
+    func configCellOtherGroup(group: OtherGroupRealm) {
+        
+        groupName.text = group.name
+        
+//        //получаем фото из строки url
+        let urlString = group.photo
+        guard let urlAvatar = URL(string: urlString) else { return }
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: urlAvatar)
+            DispatchQueue.main.async {
+                self.groupAvatar.image = UIImage(data: data!)
+            }
+        }
+
     }
 }

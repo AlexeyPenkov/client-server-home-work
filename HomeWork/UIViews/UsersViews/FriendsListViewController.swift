@@ -26,32 +26,51 @@ class FriendsListViewController: UIViewController {
     var filteringFriendsArray = [UserInfo]()
     
     let delegate = UserCollectionViewController()
-    
-    var usersFromVK: [UserInfo] = []
-    
-    var userArr = [UserRealm]()
-    
+
     let funcForRealm = RealmService()
+    
+    let realm = try! Realm()
+    
+    var token: NotificationToken?
+    
+    var usersRealm: Results<UserRealm>? {
+        didSet {
+            token = usersRealm?.observe { changes in
+                
+                switch changes {
+                case .initial(let results):
+                    print("Start to modify", results)
+                    //Pattern matching - Enum
+                case .update(let results, let deletions, let insertions, let modifications):
+                    self.friedsListTableView.reloadData()
+                case .error(let error):
+                    print("error \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userArr = funcForRealm.readUserFromRealm()
-//        Network().getFriends { [weak self] items in
-//            self?.usersFromVK = items
+        usersRealm = realm.objects(UserRealm.self)
+//        let usersRealm = realm.objects(UserRealm.self)
+//
+//        token = usersRealm.observe { changes in
+//            switch changes {
+//            case .initial(let results):
+//                print("Start modified: \(results)")
+//            case .update(_, deletions: let deletions, insertions: let insertions, modifications: let modifications):
+//                self.friedsListTableView.reloadData()
+//            case .error(let error):
+//                print("ERROR: \(error)")
+//            }
 //        }
-        
-        //if (userArr.count == 0) || (userArr.count != usersFromVK.count) {
-        if userArr.count == 0 {
+       
+        if usersRealm?.count == 0 {
             funcForRealm.clearUsersRealm()
-            let  group = DispatchGroup()
-            group.enter()
             Network().getFriends {[weak self] items in
                 self?.funcForRealm.writeUserInfoToRealm(userArray: items)
-                group.leave()
-            }
-            
-            group.notify(queue: .main) { [weak self] in
-                self?.friedsListTableView.reloadData()
             }
         }
 
@@ -61,9 +80,7 @@ class FriendsListViewController: UIViewController {
         let userCell = UINib(nibName: "MyFriendsTableViewCell", bundle: nil)
         
         friedsListTableView.register(userCell, forCellReuseIdentifier: userCellIdentifier)
-        
-        
-        friedsListTableView.reloadData()
+
     }
 
 }
@@ -74,23 +91,27 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return userArr.count
+        let usersRealm = realm.objects(UserRealm.self)
+        return usersRealm.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = friedsListTableView.dequeueReusableCell(withIdentifier: userCellIdentifier, for: indexPath) as? MyFriendsTableViewCell else { return UITableViewCell() }
-
-            let user = userArr[indexPath.row]
             
+//        let usersRealm = realm.objects(UserRealm.self)
+        
+        if let user = usersRealm?[indexPath.row] {            
             cell.configCell(user: user)
-
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
-        currentUserId = userArr[indexPath.row].id
+//        let usersRealm = realm.objects(UserRealm.self)
+        
+        currentUserId = usersRealm?[indexPath.row].id
         
         performSegue(withIdentifier: tableToCollectionSegue, sender: self)
     }
@@ -113,8 +134,6 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate 
         dst.currentUserId = currentUserId
     
     }
-    
- 
     
 }
 

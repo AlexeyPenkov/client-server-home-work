@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Alamofire
+import RealmSwift
 
 private let reuseIdentifier = "Cell"
 
@@ -15,30 +15,44 @@ class UserCollectionViewController: UICollectionViewController {
     var currentUserId: Int?
     let userFotoCellIdentifier = "userFotoCellIdentifire"
     
-    var urlRequest: String = ""
+    let realm = try! Realm()
     
-    var searchRequest: StructUserPhoto?
-   
-    var photoArrayRealm = [PhotosRealm]()
+    var token: NotificationToken?
+    
     let funcForRealm = RealmService()
+    
+    var photoArrayRealm: Results<PhotosRealm>? {
+        didSet {
+            token = photoArrayRealm?.observe { changes in
+                
+                switch changes {
+                case .initial(let results):
+                    print("Start to modify", results)
+                    //Pattern matching - Enum
+                case .update(let results, let deletions, let insertions, let modifications):
+                    self.collectionView.reloadData()
+                case .error(let error):
+                    print("error \(error.localizedDescription)")
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         guard let currentIndex = currentUserId else { return }
         
-        photoArrayRealm = funcForRealm.readPhotosFromRealm().filter { $0.userId == currentIndex
-        }
-    
-        if photoArrayRealm.count == 0 {
+        getPhotosArray(curIndex: String(currentIndex))
+                
+        if photoArrayRealm?.count == 0 {
             Network().getUserFoto(userId: currentIndex) { [weak self] item in
                 self?.funcForRealm.writePhotosFromRealm(userId: currentIndex, photoArray: item)
             }
         }
 
         self.collectionView.register(UINib(nibName: "UserCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: userFotoCellIdentifier)
-        
-        self.collectionView.reloadData()
+    
     }
 
     // MARK: UICollectionViewDataSource
@@ -51,10 +65,14 @@ class UserCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
+
+        guard let currentIndex = currentUserId else { return 0 }
         
-       
-        //return photoArray.count
-        return photoArrayRealm.count
+        getPhotosArray(curIndex: String(currentIndex))
+        
+        if let photos = photoArrayRealm {
+            return photos.count
+        } else { return 0}
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -63,10 +81,9 @@ class UserCollectionViewController: UICollectionViewController {
         
         guard let curIndex = currentUserId else { return cell }
         
-        
-//        cell.configCell(userFoto: photoArray[indexPath.item])
-        
-        cell.configCell(userFoto: photoArrayRealm[indexPath.item])
+        getPhotosArray(curIndex: String(curIndex))
+       
+        cell.configCell(userFoto: photoArrayRealm?[indexPath.item])
             cell.currentCount = curIndex
             cell.currentItem = indexPath.item
             cell.delegate = self
@@ -78,12 +95,18 @@ class UserCollectionViewController: UICollectionViewController {
 
 extension UserCollectionViewController: CustomCellDelegate {
     func pressLikeButton(currCount: Int, currItem: Int, count: Int) {
-//        DataStorage.share.usersArray[currCount].photoArray[currItem].countOfLike = count
+
     }
     
     func pressDislikeButton(currCount: Int, currItem: Int, count: Int) {
-        //DataStorage.share.usersArray[currCount].photoArray[currItem].countOfDislike = count
+
     }
     
+    func getPhotosArray(curIndex: String) {
+                
+        photoArrayRealm = realm.objects(PhotosRealm.self)
+            .filter("userId = \(curIndex)")
+        
+    }
    
 }
