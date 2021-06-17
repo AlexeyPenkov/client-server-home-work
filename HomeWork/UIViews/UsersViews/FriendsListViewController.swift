@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import Firebase
 
 
 class FriendsListViewController: UIViewController {
@@ -50,22 +51,19 @@ class FriendsListViewController: UIViewController {
         }
     }
         
+    private var AuthorizedUsers = [FBUsers]()
+    
+    private let ref = Database.database().reference(withPath: "users")
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let authorizedUsers = FBUsers(id: Session.shared.userID)
+        let userRef = self.ref.child(String(Session.shared.userID))
+        userRef.setValue(authorizedUsers.toDictionary())
+        
         usersRealm = realm.objects(UserRealm.self)
-//        let usersRealm = realm.objects(UserRealm.self)
-//
-//        token = usersRealm.observe { changes in
-//            switch changes {
-//            case .initial(let results):
-//                print("Start modified: \(results)")
-//            case .update(_, deletions: let deletions, insertions: let insertions, modifications: let modifications):
-//                self.friedsListTableView.reloadData()
-//            case .error(let error):
-//                print("ERROR: \(error)")
-//            }
-//        }
        
         if usersRealm?.count == 0 {
             funcForRealm.clearUsersRealm()
@@ -97,9 +95,7 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = friedsListTableView.dequeueReusableCell(withIdentifier: userCellIdentifier, for: indexPath) as? MyFriendsTableViewCell else { return UITableViewCell() }
-            
-//        let usersRealm = realm.objects(UserRealm.self)
-        
+                    
         if let user = usersRealm?[indexPath.row] {            
             cell.configCell(user: user)
         }
@@ -108,9 +104,7 @@ extension FriendsListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
-//        let usersRealm = realm.objects(UserRealm.self)
-        
+              
         currentUserId = usersRealm?[indexPath.row].id
         
         performSegue(withIdentifier: tableToCollectionSegue, sender: self)

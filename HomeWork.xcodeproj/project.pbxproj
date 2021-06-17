@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		913335F9BD0406A5FB1C9EBA /* Pods_lesson1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1B6E6BD913ACAC4B60CE4C /* Pods_lesson1.framework */; };
+		B0B6614DCC46006DDCE63CB5 /* Pods_HomeWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D0E1DF32B5FE19FC8C41991 /* Pods_HomeWork.framework */; };
 		BC2F07C42620432A00180B26 /* MyFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F07C22620432A00180B26 /* MyFriendsTableViewCell.swift */; };
 		BC2F07C52620432A00180B26 /* MyFriendsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2F07C32620432A00180B26 /* MyFriendsTableViewCell.xib */; };
 		BC2F07D0262044E600180B26 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F07CE262044E600180B26 /* GroupTableViewCell.swift */; };
@@ -20,6 +20,9 @@
 		BC35B0D626673919004FA2BB /* PhotosRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D526673919004FA2BB /* PhotosRealm.swift */; };
 		BC35B0D82668791C004FA2BB /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D72668791C004FA2BB /* RealmService.swift */; };
 		BC35B0DA26688278004FA2BB /* OtherGroupRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D926688278004FA2BB /* OtherGroupRealm.swift */; };
+		BC35B0F5267B24BB004FA2BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC35B0F4267B24BB004FA2BB /* GoogleService-Info.plist */; };
+		BC35B0F7267B428A004FA2BB /* FBUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0F6267B428A004FA2BB /* FBUsers.swift */; };
+		BC35B0F9267B44A4004FA2BB /* FBGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0F8267B44A4004FA2BB /* FBGroups.swift */; };
 		BC5D5A57265B825700D50529 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5D5A56265B825700D50529 /* Session.swift */; };
 		BC8C30BE265E175200C91E23 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C30BD265E175200C91E23 /* AuthViewController.swift */; };
 		BC8C30C1265F5A4400C91E23 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C30C0265F5A4400C91E23 /* Network.swift */; };
@@ -45,8 +48,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3A1B6E6BD913ACAC4B60CE4C /* Pods_lesson1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lesson1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D0E1DF32B5FE19FC8C41991 /* Pods_HomeWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		51885D320CAB56406CE1EC78 /* Pods-HomeWork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeWork.debug.xcconfig"; path = "Target Support Files/Pods-HomeWork/Pods-HomeWork.debug.xcconfig"; sourceTree = "<group>"; };
 		5B0BF183F91E7355635320D7 /* Pods-lesson1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lesson1.release.xcconfig"; path = "Target Support Files/Pods-lesson1/Pods-lesson1.release.xcconfig"; sourceTree = "<group>"; };
+		740E4552215B6C2471A3318E /* Pods-HomeWork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeWork.release.xcconfig"; path = "Target Support Files/Pods-HomeWork/Pods-HomeWork.release.xcconfig"; sourceTree = "<group>"; };
 		968947921E816BC3FEEA083F /* Pods-lesson1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lesson1.debug.xcconfig"; path = "Target Support Files/Pods-lesson1/Pods-lesson1.debug.xcconfig"; sourceTree = "<group>"; };
 		BC2F07C22620432A00180B26 /* MyFriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsTableViewCell.swift; sourceTree = "<group>"; };
 		BC2F07C32620432A00180B26 /* MyFriendsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyFriendsTableViewCell.xib; sourceTree = "<group>"; };
@@ -60,6 +65,9 @@
 		BC35B0D526673919004FA2BB /* PhotosRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRealm.swift; sourceTree = "<group>"; };
 		BC35B0D72668791C004FA2BB /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		BC35B0D926688278004FA2BB /* OtherGroupRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherGroupRealm.swift; sourceTree = "<group>"; };
+		BC35B0F4267B24BB004FA2BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BC35B0F6267B428A004FA2BB /* FBUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBUsers.swift; sourceTree = "<group>"; };
+		BC35B0F8267B44A4004FA2BB /* FBGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBGroups.swift; sourceTree = "<group>"; };
 		BC5D5A56265B825700D50529 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		BC8C30BD265E175200C91E23 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		BC8C30C0265F5A4400C91E23 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -91,7 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				913335F9BD0406A5FB1C9EBA /* Pods_lesson1.framework in Frameworks */,
+				B0B6614DCC46006DDCE63CB5 /* Pods_HomeWork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,7 +109,7 @@
 		2AAF1A3E379012C3519240D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3A1B6E6BD913ACAC4B60CE4C /* Pods_lesson1.framework */,
+				2D0E1DF32B5FE19FC8C41991 /* Pods_HomeWork.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -111,6 +119,8 @@
 			children = (
 				968947921E816BC3FEEA083F /* Pods-lesson1.debug.xcconfig */,
 				5B0BF183F91E7355635320D7 /* Pods-lesson1.release.xcconfig */,
+				51885D320CAB56406CE1EC78 /* Pods-HomeWork.debug.xcconfig */,
+				740E4552215B6C2471A3318E /* Pods-HomeWork.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -122,6 +132,8 @@
 				BC8C30C62660BEC100C91E23 /* Group.swift */,
 				BC8C30D82664C1BF00C91E23 /* Photo.swift */,
 				BCE275CF2635C714005A326D /* News.swift */,
+				BC35B0F6267B428A004FA2BB /* FBUsers.swift */,
+				BC35B0F8267B44A4004FA2BB /* FBGroups.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,6 +194,7 @@
 				BCBE6B332619A1860062FAED /* LaunchScreen.storyboard */,
 				BCBE6B2E2619A1850062FAED /* Main.storyboard */,
 				BCBE6B312619A1860062FAED /* Assets.xcassets */,
+				BC35B0F4267B24BB004FA2BB /* GoogleService-Info.plist */,
 				BCBE6B362619A1860062FAED /* Info.plist */,
 			);
 			path = Resources;
@@ -348,6 +361,7 @@
 			files = (
 				BCBE6B352619A1860062FAED /* LaunchScreen.storyboard in Resources */,
 				BC2F07D1262044E600180B26 /* GroupTableViewCell.xib in Resources */,
+				BC35B0F5267B24BB004FA2BB /* GoogleService-Info.plist in Resources */,
 				BCFA86A726308780009A8FCC /* ControlTableViewCell.xib in Resources */,
 				BCBE6B322619A1860062FAED /* Assets.xcassets in Resources */,
 				BC2F07DA2620464F00180B26 /* UserCollectionViewCell.xib in Resources */,
@@ -366,15 +380,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-lesson1/Pods-lesson1-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-HomeWork/Pods-HomeWork-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-lesson1/Pods-lesson1-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-HomeWork/Pods-HomeWork-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lesson1/Pods-lesson1-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HomeWork/Pods-HomeWork-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F47D3804AC190D45C814A4FA /* [CP] Check Pods Manifest.lock */ = {
@@ -392,7 +406,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-lesson1-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-HomeWork-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -411,6 +425,7 @@
 				BCBE6B292619A1850062FAED /* AppDelegate.swift in Sources */,
 				BCE7224E2635B503005D4817 /* NewsTableViewController.swift in Sources */,
 				BCBE6B2B2619A1850062FAED /* SceneDelegate.swift in Sources */,
+				BC35B0F7267B428A004FA2BB /* FBUsers.swift in Sources */,
 				BC9FF9AF26249DF000DD0AE6 /* OtherGroupTableViewController.swift in Sources */,
 				BC35B0D626673919004FA2BB /* PhotosRealm.swift in Sources */,
 				BCFA86A626308780009A8FCC /* ControlTableViewCell.swift in Sources */,
@@ -419,6 +434,7 @@
 				BCFA86A1263079E5009A8FCC /* FriendsListViewController.swift in Sources */,
 				BC2F07D92620464F00180B26 /* UserCollectionViewCell.swift in Sources */,
 				BC35B0D426673891004FA2BB /* GroupRealm.swift in Sources */,
+				BC35B0F9267B44A4004FA2BB /* FBGroups.swift in Sources */,
 				BC35B0D2266737A9004FA2BB /* UsersRealm.swift in Sources */,
 				BC2F07C42620432A00180B26 /* MyFriendsTableViewCell.swift in Sources */,
 				BC35B0DA26688278004FA2BB /* OtherGroupRealm.swift in Sources */,
@@ -575,7 +591,7 @@
 		};
 		BCBE6B3A2619A1860062FAED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 968947921E816BC3FEEA083F /* Pods-lesson1.debug.xcconfig */;
+			baseConfigurationReference = 51885D320CAB56406CE1EC78 /* Pods-HomeWork.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -595,7 +611,7 @@
 		};
 		BCBE6B3B2619A1860062FAED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B0BF183F91E7355635320D7 /* Pods-lesson1.release.xcconfig */;
+			baseConfigurationReference = 740E4552215B6C2471A3318E /* Pods-HomeWork.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

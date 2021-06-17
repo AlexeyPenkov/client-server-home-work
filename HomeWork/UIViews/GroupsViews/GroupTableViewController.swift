@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import Firebase
 
 
 class GroupTableViewController: UITableViewController {
@@ -38,6 +39,10 @@ class GroupTableViewController: UITableViewController {
         }
     }
     
+    private let group = [FBGroups]()
+    
+    private let ref = Database.database().reference(withPath: "users")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,6 +56,14 @@ class GroupTableViewController: UITableViewController {
         
         groupTableView.register(UINib(nibName: "GroupTableViewCell", bundle: nil), forCellReuseIdentifier: groupCellIdentifier)
     
+        if let communitys = groupsRealm {
+            for item in communitys {
+                let group = FBGroups(name: item.name, groupid: item.id)
+                let groupRef = self.ref.child(String(Session.shared.userID)).child(item.name)
+                groupRef.setValue(group.toDictionary())
+            }
+        }
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
