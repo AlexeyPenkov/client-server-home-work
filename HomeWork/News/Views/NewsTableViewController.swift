@@ -14,7 +14,7 @@ class NewsTableViewController: UITableViewController {
     
     let newCellIdentifier = "newCellIdentifier"
     
-    var newsArr = [ItemsNews]()
+    var newsArr = [ItemNews]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
