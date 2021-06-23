@@ -49,9 +49,6 @@ class Network: NSObject {
                 DispatchQueue.main.async {
                     complition(tempArr)
                 }
-                
-//                self?.funcForRealm.writeUserToRealm(response: searchResponse.response)
-//                self?.friedsListTableView.reloadData()
             case .failure(let error):
                 print(error)
             }
@@ -308,9 +305,9 @@ class Network: NSObject {
         }
     }
     
-    func getNews(complition: @escaping ([ItemsNews])->()) {
+    func getNews(complition: @escaping ([ItemNews])->()) {
         
-        var newsArr = [ItemsNews]()
+        var newsArr = [ItemNews]()
         
         let url = "https://api.vk.com/method/newsfeed.get?access_token=\(token)&filters=post,photo&return_banned=0&v=5.131"
         AF.request(url, method: .get).responseData { response in

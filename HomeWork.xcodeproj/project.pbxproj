@@ -23,6 +23,7 @@
 		BC35B0F5267B24BB004FA2BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC35B0F4267B24BB004FA2BB /* GoogleService-Info.plist */; };
 		BC35B0F7267B428A004FA2BB /* FBUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0F6267B428A004FA2BB /* FBUsers.swift */; };
 		BC35B0F9267B44A4004FA2BB /* FBGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0F8267B44A4004FA2BB /* FBGroups.swift */; };
+		BC35B1222682DF09004FA2BB /* UsersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B1212682DF09004FA2BB /* UsersPresenter.swift */; };
 		BC5D5A57265B825700D50529 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5D5A56265B825700D50529 /* Session.swift */; };
 		BC8C30BE265E175200C91E23 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C30BD265E175200C91E23 /* AuthViewController.swift */; };
 		BC8C30C1265F5A4400C91E23 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C30C0265F5A4400C91E23 /* Network.swift */; };
@@ -42,9 +43,6 @@
 		BCE722532635B7DA005D4817 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE722512635B7DA005D4817 /* NewsTableViewCell.swift */; };
 		BCE722542635B7DA005D4817 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE722522635B7DA005D4817 /* NewsTableViewCell.xib */; };
 		BCFA86A1263079E5009A8FCC /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFA86A0263079E5009A8FCC /* FriendsListViewController.swift */; };
-		BCFA86A626308780009A8FCC /* ControlTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFA86A426308780009A8FCC /* ControlTableViewCell.swift */; };
-		BCFA86A726308780009A8FCC /* ControlTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCFA86A526308780009A8FCC /* ControlTableViewCell.xib */; };
-		BCFA86B026310F3D009A8FCC /* ControlFriendListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFA86AF26310F3D009A8FCC /* ControlFriendListTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +66,7 @@
 		BC35B0F4267B24BB004FA2BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BC35B0F6267B428A004FA2BB /* FBUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBUsers.swift; sourceTree = "<group>"; };
 		BC35B0F8267B44A4004FA2BB /* FBGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBGroups.swift; sourceTree = "<group>"; };
+		BC35B1212682DF09004FA2BB /* UsersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersPresenter.swift; sourceTree = "<group>"; };
 		BC5D5A56265B825700D50529 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		BC8C30BD265E175200C91E23 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		BC8C30C0265F5A4400C91E23 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -89,9 +88,6 @@
 		BCE722512635B7DA005D4817 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		BCE722522635B7DA005D4817 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		BCFA86A0263079E5009A8FCC /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
-		BCFA86A426308780009A8FCC /* ControlTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlTableViewCell.swift; sourceTree = "<group>"; };
-		BCFA86A526308780009A8FCC /* ControlTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControlTableViewCell.xib; sourceTree = "<group>"; };
-		BCFA86AF26310F3D009A8FCC /* ControlFriendListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlFriendListTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,12 +124,7 @@
 		BC2F07DC2622BDBF00180B26 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BC8C30C2265F659500C91E23 /* User.swift */,
-				BC8C30C62660BEC100C91E23 /* Group.swift */,
 				BC8C30D82664C1BF00C91E23 /* Photo.swift */,
-				BCE275CF2635C714005A326D /* News.swift */,
-				BC35B0F6267B428A004FA2BB /* FBUsers.swift */,
-				BC35B0F8267B44A4004FA2BB /* FBGroups.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -141,22 +132,10 @@
 		BC35B0E026709A2E004FA2BB /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				BC2F07DC2622BDBF00180B26 /* Model */,
 				BC8C30C0265F5A4400C91E23 /* Network.swift */,
 				BC35B0D72668791C004FA2BB /* RealmService.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		BC35B0E126709A8C004FA2BB /* UIViews */ = {
-			isa = PBXGroup;
-			children = (
-				BC8C30BC265E173200C91E23 /* Authorize */,
-				BCE7224C2635B4CA005D4817 /* NewsTabelView */,
-				BC9FF9B426282A8600DD0AE6 /* UsersViews */,
-				BC9FF9B526282B1300DD0AE6 /* GroupsViews */,
-			);
-			path = UIViews;
 			sourceTree = "<group>";
 		};
 		BC35B0E226709B3D004FA2BB /* Storage */ = {
@@ -177,6 +156,146 @@
 				BC35B0D526673919004FA2BB /* PhotosRealm.swift */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		BC35B1112682D083004FA2BB /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				BC2F07DC2622BDBF00180B26 /* Model */,
+				BC35B11A2682D147004FA2BB /* Views */,
+				BC35B11D2682D16C004FA2BB /* Presenter */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		BC35B1122682D0DD004FA2BB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BC8C30C2265F659500C91E23 /* User.swift */,
+				BC35B0F6267B428A004FA2BB /* FBUsers.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BC35B1132682D0EA004FA2BB /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				BC35B1122682D0DD004FA2BB /* Models */,
+				BC35B1182682D12E004FA2BB /* Views */,
+				BC35B11C2682D15F004FA2BB /* Presenter */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		BC35B1142682D102004FA2BB /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				BC35B1162682D116004FA2BB /* Models */,
+				BC35B1192682D136004FA2BB /* Views */,
+			);
+			path = Groups;
+			sourceTree = "<group>";
+		};
+		BC35B1152682D114004FA2BB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BC35B1162682D116004FA2BB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BC8C30C62660BEC100C91E23 /* Group.swift */,
+				BC35B0F8267B44A4004FA2BB /* FBGroups.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BC35B1172682D122004FA2BB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BC8C30BD265E175200C91E23 /* AuthViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BC35B1182682D12E004FA2BB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BCFA86A0263079E5009A8FCC /* FriendsListViewController.swift */,
+				BC2F07C22620432A00180B26 /* MyFriendsTableViewCell.swift */,
+				BC2F07C32620432A00180B26 /* MyFriendsTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BC35B1192682D136004FA2BB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BC9FF9AE26249DF000DD0AE6 /* OtherGroupTableViewController.swift */,
+				BC2F07EA26235EF700180B26 /* GroupTableViewController.swift */,
+				BC2F07CF262044E600180B26 /* GroupTableViewCell.xib */,
+				BC2F07CE262044E600180B26 /* GroupTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BC35B11A2682D147004FA2BB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BC9FF9B826283BB900DD0AE6 /* UserCollectionViewController.swift */,
+				BC2F07D82620464F00180B26 /* UserCollectionViewCell.xib */,
+				BC2F07D72620464F00180B26 /* UserCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BC35B11B2682D154004FA2BB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		BC35B11C2682D15F004FA2BB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				BC35B1212682DF09004FA2BB /* UsersPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		BC35B11D2682D16C004FA2BB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		BC35B11E2682D22B004FA2BB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BCE275CF2635C714005A326D /* News.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BC35B11F2682D236004FA2BB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BCE7224D2635B503005D4817 /* NewsTableViewController.swift */,
+				BCE722512635B7DA005D4817 /* NewsTableViewCell.swift */,
+				BCE722522635B7DA005D4817 /* NewsTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BC35B1202682D248004FA2BB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		BC5D5A52265B813E00D50529 /* App */ = {
@@ -219,7 +338,9 @@
 		BC8C30BC265E173200C91E23 /* Authorize */ = {
 			isa = PBXGroup;
 			children = (
-				BC8C30BD265E175200C91E23 /* AuthViewController.swift */,
+				BC35B1152682D114004FA2BB /* Models */,
+				BC35B1172682D122004FA2BB /* Views */,
+				BC35B11B2682D154004FA2BB /* Presenter */,
 			);
 			path = Authorize;
 			sourceTree = "<group>";
@@ -230,33 +351,6 @@
 				BC8C30D52664BD8800C91E23 /* PrettyJSON.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		BC9FF9B426282A8600DD0AE6 /* UsersViews */ = {
-			isa = PBXGroup;
-			children = (
-				BC9FF9B826283BB900DD0AE6 /* UserCollectionViewController.swift */,
-				BC2F07D82620464F00180B26 /* UserCollectionViewCell.xib */,
-				BC2F07D72620464F00180B26 /* UserCollectionViewCell.swift */,
-				BCFA86A0263079E5009A8FCC /* FriendsListViewController.swift */,
-				BC2F07C22620432A00180B26 /* MyFriendsTableViewCell.swift */,
-				BC2F07C32620432A00180B26 /* MyFriendsTableViewCell.xib */,
-				BCFA86A426308780009A8FCC /* ControlTableViewCell.swift */,
-				BCFA86A526308780009A8FCC /* ControlTableViewCell.xib */,
-				BCFA86AF26310F3D009A8FCC /* ControlFriendListTableView.swift */,
-			);
-			path = UsersViews;
-			sourceTree = "<group>";
-		};
-		BC9FF9B526282B1300DD0AE6 /* GroupsViews */ = {
-			isa = PBXGroup;
-			children = (
-				BC2F07CF262044E600180B26 /* GroupTableViewCell.xib */,
-				BC2F07CE262044E600180B26 /* GroupTableViewCell.swift */,
-				BC2F07EA26235EF700180B26 /* GroupTableViewController.swift */,
-				BC9FF9AE26249DF000DD0AE6 /* OtherGroupTableViewController.swift */,
-			);
-			path = GroupsViews;
 			sourceTree = "<group>";
 		};
 		BCBE6B1C2619A1850062FAED = {
@@ -280,9 +374,13 @@
 		BCBE6B272619A1850062FAED /* HomeWork */ = {
 			isa = PBXGroup;
 			children = (
+				BC8C30BC265E173200C91E23 /* Authorize */,
+				BC35B1132682D0EA004FA2BB /* Users */,
+				BC35B1142682D102004FA2BB /* Groups */,
+				BCE7224C2635B4CA005D4817 /* News */,
+				BC35B1112682D083004FA2BB /* Photo */,
 				BC35B0E226709B3D004FA2BB /* Storage */,
 				BC35B0E026709A2E004FA2BB /* Service */,
-				BC35B0E126709A8C004FA2BB /* UIViews */,
 				BC5D5A52265B813E00D50529 /* App */,
 				BC5D5A53265B816100D50529 /* Resources */,
 				BC8C30D72664BD8E00C91E23 /* Extension */,
@@ -290,14 +388,14 @@
 			path = HomeWork;
 			sourceTree = "<group>";
 		};
-		BCE7224C2635B4CA005D4817 /* NewsTabelView */ = {
+		BCE7224C2635B4CA005D4817 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				BCE7224D2635B503005D4817 /* NewsTableViewController.swift */,
-				BCE722512635B7DA005D4817 /* NewsTableViewCell.swift */,
-				BCE722522635B7DA005D4817 /* NewsTableViewCell.xib */,
+				BC35B11E2682D22B004FA2BB /* Models */,
+				BC35B11F2682D236004FA2BB /* Views */,
+				BC35B1202682D248004FA2BB /* Presenter */,
 			);
-			path = NewsTabelView;
+			path = News;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,7 +460,6 @@
 				BCBE6B352619A1860062FAED /* LaunchScreen.storyboard in Resources */,
 				BC2F07D1262044E600180B26 /* GroupTableViewCell.xib in Resources */,
 				BC35B0F5267B24BB004FA2BB /* GoogleService-Info.plist in Resources */,
-				BCFA86A726308780009A8FCC /* ControlTableViewCell.xib in Resources */,
 				BCBE6B322619A1860062FAED /* Assets.xcassets in Resources */,
 				BC2F07DA2620464F00180B26 /* UserCollectionViewCell.xib in Resources */,
 				BCBE6B302619A1850062FAED /* Main.storyboard in Resources */,
@@ -422,13 +519,13 @@
 			files = (
 				BC8C30BE265E175200C91E23 /* AuthViewController.swift in Sources */,
 				BC8C30D92664C1BF00C91E23 /* Photo.swift in Sources */,
+				BC35B1222682DF09004FA2BB /* UsersPresenter.swift in Sources */,
 				BCBE6B292619A1850062FAED /* AppDelegate.swift in Sources */,
 				BCE7224E2635B503005D4817 /* NewsTableViewController.swift in Sources */,
 				BCBE6B2B2619A1850062FAED /* SceneDelegate.swift in Sources */,
 				BC35B0F7267B428A004FA2BB /* FBUsers.swift in Sources */,
 				BC9FF9AF26249DF000DD0AE6 /* OtherGroupTableViewController.swift in Sources */,
 				BC35B0D626673919004FA2BB /* PhotosRealm.swift in Sources */,
-				BCFA86A626308780009A8FCC /* ControlTableViewCell.swift in Sources */,
 				BC9FF9B926283BB900DD0AE6 /* UserCollectionViewController.swift in Sources */,
 				BCE722532635B7DA005D4817 /* NewsTableViewCell.swift in Sources */,
 				BCFA86A1263079E5009A8FCC /* FriendsListViewController.swift in Sources */,
@@ -443,7 +540,6 @@
 				BC8C30D62664BD8800C91E23 /* PrettyJSON.swift in Sources */,
 				BC2F07D0262044E600180B26 /* GroupTableViewCell.swift in Sources */,
 				BC35B0D82668791C004FA2BB /* RealmService.swift in Sources */,
-				BCFA86B026310F3D009A8FCC /* ControlFriendListTableView.swift in Sources */,
 				BC8C30C3265F659500C91E23 /* User.swift in Sources */,
 				BCE275D02635C714005A326D /* News.swift in Sources */,
 				BC2F07EB26235EF700180B26 /* GroupTableViewController.swift in Sources */,

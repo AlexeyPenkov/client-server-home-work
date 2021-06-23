@@ -25,10 +25,10 @@ class NewsTableViewCell: UITableViewCell {
 
     }
     
-    func configCell(news: ItemsNews){
+    func configCell(news: ItemNews){
         titleLabel.text = news.text
         //autorLabel.text = news.autor.name
-        let url = news.attachments?.first?.photo?.sizes.first
+        let url = news.attachments.first?.photo.sizes.first
         let urlString = url?.url
         
         let urlAvatar = URL(string: urlString!)

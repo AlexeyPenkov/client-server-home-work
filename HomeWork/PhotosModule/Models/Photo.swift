@@ -13,11 +13,11 @@ struct StructUserPhoto: Codable {
 // MARK: - Response
 struct Response: Codable {
     let count: Int
-    let items: [Item]
+    let items: [Items]
 }
 
 // MARK: - Item
-struct Item: Codable {
+struct Items: Codable {
     let albumID: Int
     let reposts: Reposts
     let postID: Int?
@@ -38,20 +38,8 @@ struct Item: Codable {
     }
 }
 
-// MARK: - Likes
-struct Likes: Codable {
-    let userLikes, count: Int
 
-    enum CodingKeys: String, CodingKey {
-        case userLikes = "user_likes"
-        case count
-    }
-}
 
-// MARK: - Reposts
-struct Reposts: Codable {
-    let count: Int
-}
 
 // MARK: - Size
 struct PhotoUrl: Codable {
