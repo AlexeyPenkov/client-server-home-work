@@ -305,19 +305,61 @@ class Network: NSObject {
         }
     }
     
-    func getNews(complition: @escaping ([ItemNews])->()) {
+    func getNewsPost(complition: @escaping ([ItemNews])->()) {
         
-        var newsArr = [ItemNews]()
-        
-        let url = "https://api.vk.com/method/newsfeed.get?access_token=\(token)&filters=post,photo&return_banned=0&v=5.131"
+        let url = "https://api.vk.com/method/newsfeed.get?access_token=\(token)&filters=post&return_banned=0&v=5.131"
         AF.request(url, method: .get).responseData { response in
             guard let data = response.value else { return }
-            print(data.prettyJSON)
-            guard let searchRequest = try? JSONDecoder().decode(NewsHeadResponse.self, from: data) else { return }
+                do {
+                    let searchRequest = try JSONDecoder().decode(NewsResponse.self, from: data)
+                    complition(searchRequest.response.items)
+                } catch {
+                    print(error)
+                }
+            }
             
-            newsArr = searchRequest.response.items     
+    }
+    
+    func getNewsProfile(complition: @escaping ([Profile])->()) {
+        
+        let url = "https://api.vk.com/method/newsfeed.get?access_token=\(token)&filters=post&return_banned=0&v=5.131"
+        AF.request(url, method: .get).responseData { response in
+            guard let data = response.value else { return }
+              do {
+                    let searchRequest = try JSONDecoder().decode(NewsResponse.self, from: data)
+                    complition(searchRequest.response.profiles)
+                } catch {
+                    print(error)
+                }
+            }
+    }
+    
+    func getNewsGroups(complition: @escaping ([Group])->()) {
+        
+        let url = "https://api.vk.com/method/newsfeed.get?access_token=\(token)&filters=post&return_banned=0&v=5.131"
+        AF.request(url, method: .get).responseData { response in
+            guard let data = response.value else { return }
+              do {
+                    let searchRequest = try JSONDecoder().decode(NewsResponse.self, from: data)
+                complition(searchRequest.response.groups)
+                } catch {
+                    print(error)
+                }
+            }
+    }
+    
+    
+    func getNewsPhoto(complition: @escaping ([ItemNews])->()) {
+        
+        let url = "https://api.vk.com/method/newsfeed.get?access_token=post&filters=photo&return_banned=0&v=5.131"
+        AF.request(url, method: .get).responseData { response in
+            guard let data = response.value else { return }
+            guard let searchRequest = try? JSONDecoder().decode(NewsResponse.self, from: data) else { return }
+            
+            complition(searchRequest.response.items)
         }
         
-        complition(newsArr)
     }
+    
+    
 }

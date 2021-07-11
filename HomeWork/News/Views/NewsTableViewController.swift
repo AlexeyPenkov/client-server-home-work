@@ -12,9 +12,9 @@ class NewsTableViewController: UITableViewController {
 
     var heigth: CGFloat?
     
-    //let newCellIdentifier = "AutorNewsCell"
+    var currentSectionsID = 0
     
-    var newsArr = [ItemNews]()
+    let newsPost = NewsPostService()
     
     let headerID = String(describing: TitleNewsCell.self)
     
@@ -31,22 +31,26 @@ class NewsTableViewController: UITableViewController {
         
         tableViewConfig()
         
-        Network().getNews { [weak self] item in
-            self?.newsArr.append(contentsOf: item)
+        let dispatchGroup = DispatchGroup()
+        DispatchQueue.global().async(group: dispatchGroup){
+            self.newsPost.getNewsArray()
+            self.newsPost.getProfileArr()
+            self.newsPost.getNewsGroup()
         }
         
-       
+        dispatchGroup.notify(queue: DispatchQueue.main) {
+            self.tableView.reloadData()
+        }
         
-        tableView.reloadData()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        //return newsArr.count
-        
-        return 5
+       // return newsArr.count
+        return newsPost.newsArray.count
+        //return 5
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,7 +61,8 @@ class NewsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerID) as? TitleNewsCell else { return UIView() }
-        header.configCell(title: "Новость: \(section)")
+        header.configCell(title: newsPost.getItemNews(id: section).text)
+        currentSectionsID = section
         return header
     }
     
@@ -70,16 +75,14 @@ class NewsTableViewController: UITableViewController {
         
         switch indexPath.row {
         case 0:
-            self.tableView.register(UINib(nibName: "AutorNewsCell", bundle: nil), forCellReuseIdentifier: "AutorNewsCell")
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AutorNewsCell", for: indexPath) as? AutorNewsCell else { return UITableViewCell() }
-            
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "AutorNewsCell", for: indexPath) as! AutorNewsCell
-            
+            self.tableView.register(UINib(nibName: "AutorNewsViewCell", bundle: nil), forCellReuseIdentifier: "AutorNewsViewCell")
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AutorNewsViewCell", for: indexPath) as? AutorNewsViewCell else { return UITableViewCell() }
+            cell.configCell(autor: newsPost.newsProfile.first?.firstName)
             return cell
         case 1:
             self.tableView.register(UINib(nibName: "NewsEntryCell", bundle: nil), forCellReuseIdentifier: "NewsEntryCell")
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsEntryCell", for: indexPath) as? NewsEntryCell  else { return UITableViewCell() }
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "NewsEntryCell", for: indexPath) as! NewsEntryCell
+            cell.configCell(news: newsPost.getItemNews(id: currentSectionsID).text)
             return cell
         case 2:
             self.tableView.register(UINib(nibName: "PhotosNewsCell", bundle: nil), forCellReuseIdentifier: "PhotosNewsCell")

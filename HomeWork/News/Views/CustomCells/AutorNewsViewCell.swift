@@ -1,14 +1,16 @@
 //
-//  AutorCell.swift
+//  AutorNewsViewCell.swift
 //  HomeWork
 //
-//  Created by Алексей Пеньков on 07.07.2021.
+//  Created by Алексей Пеньков on 12.07.2021.
 //
 
 import UIKit
 
-class AutorNewsCell: UITableViewCell {
+class AutorNewsViewCell: UITableViewCell {
 
+    @IBOutlet weak var autorLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,14 +23,15 @@ class AutorNewsCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
     func clearCell() {
-//        autorLabel.text = nil
+        autorLabel.text = nil
     }
     
-//    func configCell(autor: String?) {
-//        guard let autor = autor else { return }
-//        autorLabel.text = autor
-//    }
+    func configCell(autor: String?) {
+        guard let autor = autor else { return }
+        autorLabel.text = autor
+    }
     
     override func prepareForReuse() {
         clearCell()
