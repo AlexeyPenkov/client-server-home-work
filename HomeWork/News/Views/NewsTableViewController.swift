@@ -12,8 +12,6 @@ class NewsTableViewController: UITableViewController {
 
     var heigth: CGFloat?
     
-    var currentSectionsID = 0
-    
     let newsPost = NewsPostService()
     
     let headerID = String(describing: TitleNewsCell.self)
@@ -62,7 +60,6 @@ class NewsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerID) as? TitleNewsCell else { return UIView() }
         header.configCell(title: newsPost.getItemNews(id: section).text)
-        currentSectionsID = section
         return header
     }
     
@@ -82,7 +79,7 @@ class NewsTableViewController: UITableViewController {
         case 1:
             self.tableView.register(UINib(nibName: "NewsEntryCell", bundle: nil), forCellReuseIdentifier: "NewsEntryCell")
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsEntryCell", for: indexPath) as? NewsEntryCell  else { return UITableViewCell() }
-            cell.configCell(news: newsPost.getItemNews(id: currentSectionsID).text)
+            cell.configCell(news: newsPost.getItemNews(id: indexPath.section).text)
             return cell
         case 2:
             self.tableView.register(UINib(nibName: "PhotosNewsCell", bundle: nil), forCellReuseIdentifier: "PhotosNewsCell")
