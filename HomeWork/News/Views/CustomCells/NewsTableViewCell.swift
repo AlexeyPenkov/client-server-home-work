@@ -25,21 +25,21 @@ class NewsTableViewCell: UITableViewCell {
 
     }
     
-    func configCell(news: ItemNews){
-        titleLabel.text = news.text
-        //autorLabel.text = news.autor.name
-        let url = news.attachments.first?.photo.sizes.first
-        let urlString = url?.url
-        
-        let urlAvatar = URL(string: urlString!)
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: urlAvatar!)
-            DispatchQueue.main.async {
-                self.imageNew.image = UIImage(data: data!)
-            }
-        }
-      
-    }
+//    func configCell(news: ItemNews){
+//        titleLabel.text = news.text
+//        //autorLabel.text = news.autor.name
+//        let url = news.attachments.first?.photo.sizes.first
+//        let urlString = url?.url
+//        
+//        let urlAvatar = URL(string: urlString!)
+//        DispatchQueue.global().async {
+//            let data = try? Data(contentsOf: urlAvatar!)
+//            DispatchQueue.main.async {
+//                self.imageNew.image = UIImage(data: data!)
+//            }
+//        }
+//      
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
