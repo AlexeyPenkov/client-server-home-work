@@ -273,7 +273,7 @@ class Network: NSObject {
         
     }
     
-    func requestUserPhotioForAlomofire(userId: Int) -> String {
+    func requestUserPhotoForAlomofire(userId: Int) -> String {
         
 //        let url = "https://api.vk.com/method/photos.get?access_token=\(token)&v=5.131&owner_id=\(String(userId))&albub_id=wall&extended=1"
         
@@ -284,7 +284,7 @@ class Network: NSObject {
     }
     
     func getUserFoto(userId: Int, complition: @escaping ([String]) -> ()) {
-        let urlRequest = requestUserPhotioForAlomofire(userId: userId)
+        let urlRequest = requestUserPhotoForAlomofire(userId: userId)
         var photoArray = [String]()
         
         AF.request(urlRequest, method: .get).responseData { response in
