@@ -7,18 +7,27 @@
 
 import Foundation
 
-struct HeadResponseUsers: Decodable {
-    var response: SearchResponseUsers
+struct HeadResponseUsers: Codable {
+    let response: SearchResponseUsers
 }
 
-struct SearchResponseUsers: Decodable {
-    var count: Int
-    var items: [UserInfo]
+struct SearchResponseUsers: Codable {
+    let count: Int
+    let items: [UserInfo]
 }
 
-struct UserInfo: Decodable {
-    var firstName: String
-    var lastName: String
-    var id: Int
-    var photo: String?
+struct UserInfo: Codable {
+    let first_name: String
+    let last_name: String
+    let id: Int
+    let photo: String?
+
+//    enum CodingKeys: String, CodingKey {
+//        case firstName = "first_name"
+//        case lastName = "last_name"
+//        case photo = "photo_200_orig"
+//    }
+
 }
+
+

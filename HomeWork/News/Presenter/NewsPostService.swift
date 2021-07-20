@@ -9,7 +9,7 @@ import Foundation
 
 class NewsPostService {
     var newsArray = [ItemNews]()
-    var newsPhotoArray = [Size]()
+    var newsPhotoArray = [Int: [Size]]()
     var newsProfile = [Profile]()
     var newsGroup = [Group]()
     
@@ -25,10 +25,8 @@ class NewsPostService {
     }
     
     func getNewsPhotoArray() {
-        Network().getNewsPhoto { [weak self] item in
-//            for itemAttachement in item {
-//                item.
-//            }
+        Network().getNewsPhoto { [weak self] dict in
+//            self?.newsPhotoArray.updateValue
         }
     }
     

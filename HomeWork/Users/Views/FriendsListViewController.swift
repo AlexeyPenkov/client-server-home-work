@@ -8,6 +8,7 @@
 import UIKit
 import RealmSwift
 import Firebase
+import Alamofire
 
 
 class FriendsListViewController: UIViewController {
@@ -70,9 +71,19 @@ class FriendsListViewController: UIViewController {
        
         if usersRealm?.count == 0 {
             funcForRealm.clearUsersRealm()
-            Network().getFriends {[weak self] items in
-                self?.funcForRealm.writeUserInfoToRealm(userArray: items)
-            }
+//            Network().getFriends {[weak self] items in
+//                self?.funcForRealm.writeUserInfoToRealm(userArray: items)
+//            }
+            let myQueue = OperationQueue()
+            let request = AF.request(Network().getFriendsRequest())
+            let getUserDataOperation = GetUsersDataOperation(request: request)
+            myQueue.addOperation(getUserDataOperation)
+            let parseData = ParseUserData()
+            parseData.addDependency(getUserDataOperation)
+            myQueue.addOperation(parseData)
+            let reloadRealmUsers = ReloadUserTableContoller(controller: self)
+            reloadRealmUsers.addDependency(parseData)
+            OperationQueue.main.addOperation(reloadRealmUsers)
         }
 
         friedsListTableView.dataSource = self
