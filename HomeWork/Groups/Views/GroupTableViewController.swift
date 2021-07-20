@@ -49,9 +49,24 @@ class GroupTableViewController: UITableViewController {
         groupsRealm = realm.objects(GroupRealm.self)
                 
         if groupsRealm?.count == 0 {
-            Network().getCommunity { [weak self] (item) in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+//            Network().getCommunity { [weak self] (item) in
+//                self?.funcForRealm.writeGroupsInfoFromRealm(groupArray: item)
+//            }
+        GetGroups().getUserGroups(on: .global())
+            .get { [weak self] item in
                 self?.funcForRealm.writeGroupsInfoFromRealm(groupArray: item)
             }
+            .done { [weak self ]_ in
+                self?.tableView.reloadData()
+            }
+            .catch { error in
+                print(error)
+            }
+            .finally {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
+            
         }
         
         groupTableView.register(UINib(nibName: "GroupTableViewCell", bundle: nil), forCellReuseIdentifier: groupCellIdentifier)
