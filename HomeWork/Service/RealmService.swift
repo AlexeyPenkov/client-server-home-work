@@ -20,8 +20,8 @@ class RealmService: NSObject {
             let userRealm = UserRealm()
             
             
-            userRealm.firstName = item.firstName
-            userRealm.lastName = item.lastName
+            userRealm.firstName = item.first_name
+            userRealm.lastName = item.last_name 
             userRealm.id = item.id
             userRealm.photo = item.photo!
             

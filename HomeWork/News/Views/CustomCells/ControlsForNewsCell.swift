@@ -27,8 +27,8 @@ class ControlsForNewsCell: UITableViewCell {
         likeCounter.text = nil
     }
     
-    func configCell() {
-        
+    func configCell(likeCount: String) {
+        likeCounter.text = likeCount
     }
     
     override func prepareForReuse() {

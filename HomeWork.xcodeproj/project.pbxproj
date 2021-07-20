@@ -20,6 +20,10 @@
 		BC31281F269B5522003385A5 /* AutorNewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC31281E269B5522003385A5 /* AutorNewCell.xib */; };
 		BC312822269B55FE003385A5 /* AutorNewsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC312820269B55FE003385A5 /* AutorNewsViewCell.swift */; };
 		BC312823269B55FE003385A5 /* AutorNewsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC312821269B55FE003385A5 /* AutorNewsViewCell.xib */; };
+		BC31282526A088B6003385A5 /* GetUsersDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31282426A088B6003385A5 /* GetUsersDataOperation.swift */; };
+		BC31282726A65929003385A5 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31282626A65929003385A5 /* AsyncOperation.swift */; };
+		BC31282926A66255003385A5 /* ParseUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31282826A66255003385A5 /* ParseUserData.swift */; };
+		BC31282B26A67CE0003385A5 /* ReloadUsersTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31282A26A67CE0003385A5 /* ReloadUsersTableController.swift */; };
 		BC35B0D2266737A9004FA2BB /* UsersRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D1266737A9004FA2BB /* UsersRealm.swift */; };
 		BC35B0D426673891004FA2BB /* GroupRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D326673891004FA2BB /* GroupRealm.swift */; };
 		BC35B0D626673919004FA2BB /* PhotosRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D526673919004FA2BB /* PhotosRealm.swift */; };
@@ -77,6 +81,10 @@
 		BC31281E269B5522003385A5 /* AutorNewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AutorNewCell.xib; sourceTree = "<group>"; };
 		BC312820269B55FE003385A5 /* AutorNewsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorNewsViewCell.swift; sourceTree = "<group>"; };
 		BC312821269B55FE003385A5 /* AutorNewsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AutorNewsViewCell.xib; sourceTree = "<group>"; };
+		BC31282426A088B6003385A5 /* GetUsersDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsersDataOperation.swift; sourceTree = "<group>"; };
+		BC31282626A65929003385A5 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
+		BC31282826A66255003385A5 /* ParseUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseUserData.swift; sourceTree = "<group>"; };
+		BC31282A26A67CE0003385A5 /* ReloadUsersTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadUsersTableController.swift; sourceTree = "<group>"; };
 		BC35B0D1266737A9004FA2BB /* UsersRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRealm.swift; sourceTree = "<group>"; };
 		BC35B0D326673891004FA2BB /* GroupRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRealm.swift; sourceTree = "<group>"; };
 		BC35B0D526673919004FA2BB /* PhotosRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRealm.swift; sourceTree = "<group>"; };
@@ -311,6 +319,10 @@
 		BC35B11C2682D15F004FA2BB /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				BC31282626A65929003385A5 /* AsyncOperation.swift */,
+				BC31282826A66255003385A5 /* ParseUserData.swift */,
+				BC31282426A088B6003385A5 /* GetUsersDataOperation.swift */,
+				BC31282A26A67CE0003385A5 /* ReloadUsersTableController.swift */,
 				BC35B1212682DF09004FA2BB /* UsersPresenter.swift */,
 			);
 			path = Presenter;
@@ -582,11 +594,13 @@
 				BC35B12D26959D9D004FA2BB /* NewsEntryCell.swift in Sources */,
 				BCE7224E2635B503005D4817 /* NewsTableViewController.swift in Sources */,
 				BCBE6B2B2619A1850062FAED /* SceneDelegate.swift in Sources */,
+				BC31282B26A67CE0003385A5 /* ReloadUsersTableController.swift in Sources */,
 				BC35B0F7267B428A004FA2BB /* FBUsers.swift in Sources */,
 				BC9FF9AF26249DF000DD0AE6 /* OtherGroupTableViewController.swift in Sources */,
 				BC35B0D626673919004FA2BB /* PhotosRealm.swift in Sources */,
 				BC312822269B55FE003385A5 /* AutorNewsViewCell.swift in Sources */,
 				BC9FF9B926283BB900DD0AE6 /* UserCollectionViewController.swift in Sources */,
+				BC31282926A66255003385A5 /* ParseUserData.swift in Sources */,
 				BCE722532635B7DA005D4817 /* NewsTableViewCell.swift in Sources */,
 				BCFA86A1263079E5009A8FCC /* FriendsListViewController.swift in Sources */,
 				BC2F07D92620464F00180B26 /* UserCollectionViewCell.swift in Sources */,
@@ -598,6 +612,7 @@
 				BC2F07C42620432A00180B26 /* MyFriendsTableViewCell.swift in Sources */,
 				BCF8ED132695AD4500605B89 /* PhotoCell.swift in Sources */,
 				BC35B0DA26688278004FA2BB /* OtherGroupRealm.swift in Sources */,
+				BC31282526A088B6003385A5 /* GetUsersDataOperation.swift in Sources */,
 				BC5D5A57265B825700D50529 /* Session.swift in Sources */,
 				BC8C30C72660BEC100C91E23 /* Group.swift in Sources */,
 				BC31281D2698A55D003385A5 /* NewsPostService.swift in Sources */,
@@ -607,6 +622,7 @@
 				BC8C30C3265F659500C91E23 /* User.swift in Sources */,
 				BCF8ED172695AE9900605B89 /* ControlsForNewsCell.swift in Sources */,
 				BC2F07EB26235EF700180B26 /* GroupTableViewController.swift in Sources */,
+				BC31282726A65929003385A5 /* AsyncOperation.swift in Sources */,
 				BC8C30C1265F5A4400C91E23 /* Network.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

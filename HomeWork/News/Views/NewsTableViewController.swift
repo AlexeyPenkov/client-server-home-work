@@ -29,9 +29,11 @@ class NewsTableViewController: UITableViewController {
         
         tableViewConfig()
         
+        self.newsPost.getNewsArray()
+        
         let dispatchGroup = DispatchGroup()
         DispatchQueue.global().async(group: dispatchGroup){
-            self.newsPost.getNewsArray()
+            
             self.newsPost.getProfileArr()
             self.newsPost.getNewsGroup()
         }
@@ -89,7 +91,7 @@ class NewsTableViewController: UITableViewController {
         case 3:
             self.tableView.register(UINib(nibName: "ControlsForNewsCell", bundle: nil), forCellReuseIdentifier: "ControlsForNewsCell")
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ControlsForNewsCell", for: indexPath) as? ControlsForNewsCell  else { return UITableViewCell() }
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "ControlsForNewsCell", for: indexPath) as! ControlsForNewsCell
+            cell.configCell(likeCount: String(newsPost.getItemNews(id: indexPath.section).likes.count))
             return cell
         default:
             return UITableViewCell()
