@@ -30,4 +30,25 @@ class GetGroups {
         
         return promise
     }
+    
+    func getGroups(selection: String?, on queue: DispatchQueue = .main) -> Promise<[CommunityInfo]> {
+        let promise = Promise<Data> { resolver in
+            AF.request(Network().getCommunityRequest(selection: selection)).responseData { response in
+                if let data = response.data {
+                    resolver.fulfill(data)
+                }
+                if let error = response.error {
+                    resolver.reject(error)
+                }
+            }
+            
+        }
+        .map { data in
+            return try JSONDecoder().decode(HeadResponseCommunity.self, from: data)
+        }
+        .map { $0.response.items
+        }
+        
+        return promise
+    }
 }

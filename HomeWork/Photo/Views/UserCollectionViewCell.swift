@@ -49,14 +49,18 @@ class UserCollectionViewCell: UICollectionViewCell {
     func configCell(userFoto: PhotosRealm?) {
         
         //получаем фото из строки url
-        let urlString = userFoto?.photo
-        let urlAvatar = URL(string: urlString!)
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: urlAvatar!)
-            DispatchQueue.main.async {
-                self.foto.image = UIImage(data: data!)
-            }
-        }
+        guard let urlString = userFoto?.photo,
+              let urlAvatar = URL(string: urlString) else { return }
+        
+       
+        self.foto.setImage(at: urlAvatar)
+        
+//        DispatchQueue.global().async {
+//            let data = try? Data(contentsOf: urlAvatar!)
+//            DispatchQueue.main.async {
+//                self.foto.image = UIImage(data: data!)
+//            }
+//        }
         
         saveUserFoto = userFoto
        

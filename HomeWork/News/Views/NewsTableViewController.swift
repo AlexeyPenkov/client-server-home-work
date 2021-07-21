@@ -87,6 +87,9 @@ class NewsTableViewController: UITableViewController {
             self.tableView.register(UINib(nibName: "PhotosNewsCell", bundle: nil), forCellReuseIdentifier: "PhotosNewsCell")
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PhotosNewsCell", for: indexPath) as? PhotosNewsCell  else { return UITableViewCell() }
 //            let cell = tableView.dequeueReusableCell(withIdentifier: "PhotosNewsCell", for: indexPath) as! PhotosNewsCell
+            guard let arrAttachments = newsPost.getItemNews(id: indexPath.section).attachments else { return cell }
+            cell.arrAttachments = arrAttachments
+            cell.configCell()
             return cell
         case 3:
             self.tableView.register(UINib(nibName: "ControlsForNewsCell", bundle: nil), forCellReuseIdentifier: "ControlsForNewsCell")
@@ -109,9 +112,13 @@ class NewsTableViewController: UITableViewController {
 //        cell.configCell(news: "Новость \(indexPath)")
 
     
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        
-//        return 500
-//    }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 2 {
+            return 200
+        } else {
+            return 50
+        }
+        
+    }
 
 }
