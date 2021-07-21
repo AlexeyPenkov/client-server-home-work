@@ -166,7 +166,7 @@ struct Video: Codable {
 // MARK: - Comments
 struct Comments: Codable {
     let count, canPost: Int
-    let groupsCanPost: Bool
+    let groupsCanPost: Bool?
 
     enum CodingKeys: String, CodingKey {
         case count

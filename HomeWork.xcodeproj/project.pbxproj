@@ -25,6 +25,7 @@
 		BC31282926A66255003385A5 /* ParseUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31282826A66255003385A5 /* ParseUserData.swift */; };
 		BC31282B26A67CE0003385A5 /* ReloadUsersTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31282A26A67CE0003385A5 /* ReloadUsersTableController.swift */; };
 		BC31282D26A6C5D9003385A5 /* GetGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31282C26A6C5D9003385A5 /* GetGroups.swift */; };
+		BC31283026A7F3B8003385A5 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC31282F26A7F3B8003385A5 /* PhotoService.swift */; };
 		BC35B0D2266737A9004FA2BB /* UsersRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D1266737A9004FA2BB /* UsersRealm.swift */; };
 		BC35B0D426673891004FA2BB /* GroupRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D326673891004FA2BB /* GroupRealm.swift */; };
 		BC35B0D626673919004FA2BB /* PhotosRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B0D526673919004FA2BB /* PhotosRealm.swift */; };
@@ -87,6 +88,7 @@
 		BC31282826A66255003385A5 /* ParseUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseUserData.swift; sourceTree = "<group>"; };
 		BC31282A26A67CE0003385A5 /* ReloadUsersTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadUsersTableController.swift; sourceTree = "<group>"; };
 		BC31282C26A6C5D9003385A5 /* GetGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGroups.swift; sourceTree = "<group>"; };
+		BC31282F26A7F3B8003385A5 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
 		BC35B0D1266737A9004FA2BB /* UsersRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRealm.swift; sourceTree = "<group>"; };
 		BC35B0D326673891004FA2BB /* GroupRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRealm.swift; sourceTree = "<group>"; };
 		BC35B0D526673919004FA2BB /* PhotosRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRealm.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			children = (
 				BC8C30C0265F5A4400C91E23 /* Network.swift */,
 				BC35B0D72668791C004FA2BB /* RealmService.swift */,
+				BC31282F26A7F3B8003385A5 /* PhotoService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC31283026A7F3B8003385A5 /* PhotoService.swift in Sources */,
 				BC31281B269831D6003385A5 /* NewsPostModel.swift in Sources */,
 				BC8C30BE265E175200C91E23 /* AuthViewController.swift in Sources */,
 				BC8C30D92664C1BF00C91E23 /* Photo.swift in Sources */,

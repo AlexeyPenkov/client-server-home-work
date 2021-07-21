@@ -39,12 +39,13 @@ class GroupTableViewCell: UITableViewCell {
 //        //получаем фото из строки url
         let urlString = group.photo
         guard let urlAvatar = URL(string: urlString) else { return }
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: urlAvatar)
-            DispatchQueue.main.async {
-                self.groupAvatar.image = UIImage(data: data!)
-            }
-        }
+        self.groupAvatar.setImage(at: urlAvatar)
+//        DispatchQueue.global().async {
+//            let data = try? Data(contentsOf: urlAvatar)
+//            DispatchQueue.main.async {
+//                self.groupAvatar.image = UIImage(data: data!)
+//            }
+//        }
        saveItem = group
     }
     
@@ -55,12 +56,13 @@ class GroupTableViewCell: UITableViewCell {
 //        //получаем фото из строки url
         let urlString = group.photo
         guard let urlAvatar = URL(string: urlString) else { return }
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: urlAvatar)
-            DispatchQueue.main.async {
-                self.groupAvatar.image = UIImage(data: data!)
-            }
-        }
+        self.groupAvatar.setImage(at: urlAvatar)
+//        DispatchQueue.global().async {
+//            let data = try? Data(contentsOf: urlAvatar)
+//            DispatchQueue.main.async {
+//                self.groupAvatar.image = UIImage(data: data!)
+//            }
+//        }
 
     }
 }

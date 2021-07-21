@@ -13,6 +13,7 @@ class PhotosNewsCell: UITableViewCell, UICollectionViewDelegate, UICollectionVie
     
     let cellIdentifire = "ImageToCollection"
     var photoArrayCount = 0
+    var arrAttachments = [Attachment]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,15 +29,21 @@ class PhotosNewsCell: UITableViewCell, UICollectionViewDelegate, UICollectionVie
         // Configure the view for the selected state
     }
     
+    func configCell() {
+        collectionPhoto.reloadData()
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        
+        return arrAttachments.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifire, for: indexPath) as? PhotoCell else { return UICollectionViewCell() }
         
+        let photUrl = self.arrAttachments[indexPath.row].photo?.sizes.first?.url
+        cell.configCell(url: photUrl)
         return cell
     }
     

@@ -17,14 +17,16 @@ class PhotoCell: UICollectionViewCell {
     }
 
     func clearCell() {
-        photoNews.image = nil
+        self.photoNews.image = nil
     }
     
-    func configCell() {
-//        let url = news.attachments.first?.photo.sizes.first
-//        let urlString = url?.url
+    func configCell(url: String?) {
         
-//        let urlAvatar = URL(string: urlString!)
+        guard let url = url,
+              let urlAvatar = URL(string: url) else { return }
+        
+        
+        self.photoNews.setImage(at: urlAvatar)
 //        DispatchQueue.global().async {
 //            let data = try? Data(contentsOf: urlAvatar!)
 //            DispatchQueue.main.async {

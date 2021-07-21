@@ -55,7 +55,7 @@ class Network: NSObject {
         }
     }
     
-    func prepareURLRequest(method: String, params: [URLQueryItem]) ->URLRequest {
+    private func prepareURLRequest(method: String, params: [URLQueryItem]) ->URLRequest {
         var urlComponents = URLComponents()
     
             
@@ -73,7 +73,7 @@ class Network: NSObject {
         return requestUrl
     }
     
-    func initURLReques(urlComponents: URLComponents, method: String) -> URLComponents {
+    private func initURLReques(urlComponents: URLComponents, method: String) -> URLComponents {
         var urlComponents = urlComponents
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -90,7 +90,7 @@ class Network: NSObject {
 
     //Запрос пользователей (друзей)
     //MARK: - requestUsers
-    func requestUsers(request: URLRequest, complition: @escaping (Result<HeadResponseUsers, Error>)-> Void) {
+   private func requestUsers(request: URLRequest, complition: @escaping (Result<HeadResponseUsers, Error>)-> Void) {
         let configaration = URLSessionConfiguration.default
         let session = URLSession(configuration: configaration)
     
@@ -190,7 +190,7 @@ class Network: NSObject {
     }
     
     //MARK: - requestCommunity
-    func requestCommunity(request: URLRequest, complition: @escaping (Result<HeadResponseCommunity, Error>)-> Void) {
+    private func requestCommunity(request: URLRequest, complition: @escaping (Result<HeadResponseCommunity, Error>)-> Void) {
         let configaration = URLSessionConfiguration.default
         let session = URLSession(configuration: configaration)
     

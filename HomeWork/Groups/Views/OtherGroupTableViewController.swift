@@ -51,9 +51,25 @@ class OtherGroupTableViewController: UITableViewController {
         
         
         if otherGroupArr?.count == 0 {
-            Network().getOthersCommunity(selection: nil) { [weak self] (item) in
-                self?.funcForRealm.writeOtherGroupsInfoFromRealm(otherGroupArray: item)
-            }
+//            Network().getOthersCommunity(selection: nil) { [weak self] (item) in
+//                self?.funcForRealm.writeOtherGroupsInfoFromRealm(otherGroupArray: item)
+//            }
+            
+            GetGroups().getGroups(selection: nil, on: .global())
+                .get { [weak self] item in
+                    self?.funcForRealm.writeOtherGroupsInfoFromRealm(otherGroupArray: item)
+                }
+                .done { [weak self ]_ in
+                    self?.tableView.reloadData()
+                }
+                .catch { error in
+                    print(error)
+                }
+                .finally {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }
+                
+            //}
         }
         
         self.tableView.register(UINib(nibName: "GroupTableViewCell", bundle: nil), forCellReuseIdentifier: otherGroupCell)

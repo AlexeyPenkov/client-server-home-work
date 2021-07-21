@@ -54,13 +54,14 @@ class MyFriendsTableViewCell: UITableViewCell {
         friendName.text =  user.firstName + " " + user.lastName
         
         let urlString = user.photo
-        let urlAvatar = URL(string: urlString)
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: urlAvatar!)
-            DispatchQueue.main.async {
-                self.friendAvatar.image = UIImage(data: data!)
-            }
-        }
+        guard let urlAvatar = URL(string: urlString) else { return }
+        self.friendAvatar.setImage(at: urlAvatar)
+//        DispatchQueue.global().async {
+//            let data = try? Data(contentsOf: urlAvatar!)
+//            DispatchQueue.main.async {
+//                self.friendAvatar.image = UIImage(data: data!)
+//            }
+//        }
         saveUser = user
     }
 
