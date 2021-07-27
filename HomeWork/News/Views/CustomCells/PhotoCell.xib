@@ -18,15 +18,13 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rdt-p0-NyM">
                         <rect key="frame" x="0.0" y="0.0" width="86" height="86"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="86" id="Bs6-jL-0hf"/>
-                            <constraint firstAttribute="width" constant="86" id="QZj-FJ-EUg"/>
-                        </constraints>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstItem="rdt-p0-NyM" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="3Wv-07-4a0"/>
+                <constraint firstItem="rdt-p0-NyM" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Z6S-AO-ZO1"/>
                 <constraint firstItem="rdt-p0-NyM" firstAttribute="bottom" secondItem="ZTg-uK-7eu" secondAttribute="bottom" id="xN8-Um-5pb"/>
                 <constraint firstItem="rdt-p0-NyM" firstAttribute="trailing" secondItem="ZTg-uK-7eu" secondAttribute="trailing" id="xse-3D-rMl"/>
             </constraints>

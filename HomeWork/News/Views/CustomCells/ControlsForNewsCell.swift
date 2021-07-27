@@ -42,5 +42,4 @@ class ControlsForNewsCell: UITableViewCell {
     @IBAction func likeButtonAction(_ sender: Any) {
     }
    
-    
 }

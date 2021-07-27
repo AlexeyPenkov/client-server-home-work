@@ -49,10 +49,10 @@
             <objects>
                 <tabBarController id="mOI-oP-9BA" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="bbT-Fk-5Y4"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="g5k-9V-FvI">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="g5k-9V-FvI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="rSr-qv-mZK" kind="relationship" relationship="viewControllers" id="U4V-oy-z0S"/>
@@ -69,11 +69,11 @@
             <objects>
                 <viewController id="UxH-kf-0P6" customClass="FriendsListViewController" customModule="HomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qrB-K6-f0W">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5oY-gR-uxa">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -101,7 +101,7 @@
             <objects>
                 <tableViewController id="nBf-wY-oUp" customClass="GroupTableViewController" customModule="HomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YeE-gt-IsS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="sectionIndexBackgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -153,7 +153,7 @@
             <objects>
                 <tableViewController id="eW9-E8-26f" customClass="OtherGroupTableViewController" customModule="HomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kc9-fY-ZBX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="2mt-rn-4GX">
@@ -190,7 +190,7 @@
             <objects>
                 <collectionViewController id="bj4-uN-N7P" customClass="UserCollectionViewController" customModule="HomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pYC-3e-moq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="teq-4G-MPG">
@@ -224,7 +224,9 @@
         <scene sceneID="rtn-Mx-j2a">
             <objects>
                 <navigationController id="cz5-Wb-Rbi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Сообщества" image="person.3" catalog="system" id="H98-Sy-AYB"/>
+                    <tabBarItem key="tabBarItem" title="Сообщества" image="person.3" catalog="system" id="H98-Sy-AYB">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Second" id="34T-Ph-XgU"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9DM-yk-gTE">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -243,7 +245,7 @@
             <objects>
                 <tableViewController id="R5b-eL-Kra" customClass="NewsTableViewController" customModule="HomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FoU-kk-92e">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -285,7 +287,9 @@
                             <outlet property="delegate" destination="R5b-eL-Kra" id="MGJ-Tl-dzr"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Новости" image="newspaper" catalog="system" id="Gmi-i0-qTS"/>
+                    <tabBarItem key="tabBarItem" title="Новости" image="newspaper" catalog="system" id="Gmi-i0-qTS">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nln-1F-zdV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -295,9 +299,11 @@
         <scene sceneID="rPG-UI-xbk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rSr-qv-mZK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Мои друзья" image="person" catalog="system" id="nrb-Dd-7VB"/>
+                    <tabBarItem key="tabBarItem" title="Мои друзья" image="person" catalog="system" id="nrb-Dd-7VB">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JW7-oh-rbc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="JW7-oh-rbc">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

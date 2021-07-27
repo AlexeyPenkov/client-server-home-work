@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class GetUsersDataOperation: AsyncOperation {
+class GetDataOperation: AsyncOperation {
     
     override func cancel() {
         request.cancel()
