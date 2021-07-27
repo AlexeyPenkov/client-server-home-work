@@ -221,9 +221,9 @@ struct Profile: Codable {
     let firstName: String?
     let id: Int
     let lastName: String
-    let canAccessClosed, isClosed: Bool
+    let canAccessClosed, isClosed: Bool?
     let sex: Int
-    let screenName: String
+    let screenName: String?
     let photo50, photo100: String
     let onlineInfo: OnlineInfo
     let online: Int

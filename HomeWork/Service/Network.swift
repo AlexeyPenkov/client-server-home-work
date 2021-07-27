@@ -349,29 +349,29 @@ class Network: NSObject {
     }
     
     
-    func getNewsPhoto(complition: @escaping ([Int: [Size]])->()) {
-        var photoDict = [Int: [Size]]()
-        let url = "https://api.vk.com/method/newsfeed.get?access_token=post&filters=photo&return_banned=0&v=5.131"
-        AF.request(url, method: .get).responseData { response in
-            guard let data = response.value else { return }
-            guard let searchRequest = try? JSONDecoder().decode(NewsResponse.self, from: data) else { return }
-            for item in searchRequest.response.items {
-                var photoArr = [Size]()
-                let newsId = item.postID
-                if let attachements = item.attachments {
-                    for itemAttachements in attachements {
-                        if let photo = itemAttachements.photo?.sizes.last {
-                            photoArr.append(photo)
-                        }
-                        
-                    }
-                }
-                photoDict.updateValue(photoArr, forKey: newsId ?? 0)
-            }
-            complition(photoDict)
-        }
-        
-    }
+//    func getNewsPhoto(complition: @escaping ([Int: [Size]])->()) {
+//        var photoDict = [Int: [Size]]()
+//        let url = "https://api.vk.com/method/newsfeed.get?access_token=post&filters=photo&return_banned=0&v=5.131"
+//        AF.request(url, method: .get).responseData { response in
+//            guard let data = response.value else { return }
+//            guard let searchRequest = try? JSONDecoder().decode(NewsResponse.self, from: data) else { return }
+//            for item in searchRequest.response.items {
+//                var photoArr = [Size]()
+//                let newsId = item.postID
+//                if let attachements = item.attachments {
+//                    for itemAttachements in attachements {
+//                        if let photo = itemAttachements.photo?.sizes.last {
+//                            photoArr.append(photo)
+//                        }
+//                        
+//                    }
+//                }
+//                photoDict.updateValue(photoArr, forKey: newsId ?? 0)
+//            }
+//            complition(photoDict)
+//        }
+//        
+//    }
     
     
 }

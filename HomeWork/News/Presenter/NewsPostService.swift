@@ -24,11 +24,11 @@ class NewsPostService {
         return newsArray[id]
     }
     
-    func getNewsPhotoArray() {
-        Network().getNewsPhoto { [weak self] dict in
+//    func getNewsPhotoArray() {
+//        Network().getNewsPhoto { [weak self] dict in
 //            self?.newsPhotoArray.updateValue
-        }
-    }
+//        }
+//    }
     
     func getProfileArr() {
         Network().getNewsProfile { [weak self] profile in

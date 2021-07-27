@@ -20,13 +20,9 @@ class GetGroups {
                     resolver.reject(error)
                 }
             }
-            
-        }
-        .map { data in
+        }.map { data in
             return try JSONDecoder().decode(HeadResponseCommunity.self, from: data)
-        }
-        .map { $0.response.items
-        }
+            }.map { $0.response.items }
         
         return promise
     }

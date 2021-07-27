@@ -12,7 +12,7 @@ class ParseUserData: Operation {
     var outputData = [UserInfo]()
     
     override func main() {
-        guard let getUserDataOperation = dependencies.first as? GetUsersDataOperation,
+        guard let getUserDataOperation = dependencies.first as? GetDataOperation,
               let data = getUserDataOperation.data else { return }
         print("АЛЯРМА!!!!!")
         print(data.prettyJSON)

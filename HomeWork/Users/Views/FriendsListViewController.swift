@@ -76,7 +76,7 @@ class FriendsListViewController: UIViewController {
 //            }
             let myQueue = OperationQueue()
             let request = AF.request(Network().getFriendsRequest())
-            let getUserDataOperation = GetUsersDataOperation(request: request)
+            let getUserDataOperation = GetDataOperation(request: request)
             myQueue.addOperation(getUserDataOperation)
             let parseData = ParseUserData()
             parseData.addDependency(getUserDataOperation)

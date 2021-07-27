@@ -9,6 +9,8 @@ import UIKit
 
 class NewsEntryCell: UITableViewCell {
 
+    let instets: CGFloat = 10
+    
     @IBOutlet weak var newsEntryLabel: UILabel!
     
     override func awakeFromNib() {
@@ -34,5 +36,12 @@ class NewsEntryCell: UITableViewCell {
     
     override func prepareForReuse() {
         clearCell()
+    }
+    
+    func getLabelSize(text: String) -> CGFloat {
+        let maxWidth = bounds.maxX - instets * 2
+        let textBlock = CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude)
+        let rect = (text as NSString).boundingRect(with: textBlock, options: .usesLineFragmentOrigin, attributes: nil, context: nil)
+        return ceil(rect.size.height) + instets * 2
     }
 }
