@@ -16,6 +16,7 @@ class Network: NSObject {
     let token = Session.shared.token
     let userID = Session.shared.userID
     
+    var nextForm = ""
     //var photoArray = [Photo]()
     
     var headSearchResponse: StructUserPhoto?
@@ -305,13 +306,17 @@ class Network: NSObject {
         }
     }
     
-    func getNewsPost(complition: @escaping ([ItemNews])->()) {
-        
-        let url = "https://api.vk.com/method/newsfeed.get?access_token=\(token)&filters=post&return_banned=0&v=5.131"
+    func getNewsPost(count: Int, startTime: Double?, startFrom: String, complition: @escaping ([ItemNews])->()) {
+        var extentionTextForRequest = ""
+        if let startTime = startTime {
+            extentionTextForRequest = "&start_time=\(startTime)"
+        }
+        let url = "https://api.vk.com/method/newsfeed.get?access_token=\(token)&filters=post&count=\(count)\(extentionTextForRequest)&start_from=\(startFrom)&return_banned=0&v=5.131"
         AF.request(url, method: .get).responseData { response in
             guard let data = response.value else { return }
                 do {
                     let searchRequest = try JSONDecoder().decode(NewsResponse.self, from: data)
+                    self.nextForm = searchRequest.response.nextFrom
                     complition(searchRequest.response.items)
                 } catch {
                     print(error)

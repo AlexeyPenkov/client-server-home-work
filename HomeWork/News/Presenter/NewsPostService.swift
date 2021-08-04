@@ -14,11 +14,12 @@ class NewsPostService {
     var newsGroup = [Group]()
     
     
-    func getNewsArray() {
-        Network().getNewsPost { [weak self] item in
-            self?.newsArray.append(contentsOf: item)
-        }
-    }
+//    func getNewsArray(countNews: Int, startTime: Double?) {
+//        
+//        Network().getNewsPost(count: countNews) { [weak self] item in
+//            self?.newsArray.append(contentsOf: item)
+//        }
+//    }
     
     func getItemNews(id: Int) -> ItemNews {
         return newsArray[id]

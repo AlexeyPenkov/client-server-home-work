@@ -22,6 +22,12 @@ struct Response: Codable {
     let items: [ItemNews]
     let profiles: [Profile]
     let groups: [Group]
+    let nextFrom: String
+    
+    enum CodingKeys: String, CodingKey {
+        case items, profiles, groups
+        case nextFrom = "next_from"
+    }
 }
 
 // MARK: - Group
@@ -52,7 +58,7 @@ struct ItemNews: Codable {
     let sourceID, date: Int
     let canDoubtCategory, canSetCategory: Bool?
     let postType, text: String
-    let markedAsAds: Int
+    let markedAsAds: Int?
     let attachments: [Attachment]?
     let postSource: PostSource
     let comments: Comments
@@ -99,7 +105,7 @@ struct Photo: Codable {
     let postID: Int?
     let sizes: [Size]
     let text: String
-    let userID: Int
+    let userID: Int?
 
     enum CodingKeys: String, CodingKey {
         case albumID = "album_id"
@@ -140,7 +146,7 @@ struct Video: Codable {
     let title: String
     let isFavorite: Bool
     let trackCode, type: String
-    let views: Int
+    let views: Int?
 
     enum CodingKeys: String, CodingKey {
         case accessKey = "access_key"
