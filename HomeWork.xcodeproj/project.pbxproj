@@ -39,6 +39,7 @@
 		BC35B12E26959D9D004FA2BB /* NewsEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC35B12C26959D9D004FA2BB /* NewsEntryCell.xib */; };
 		BC35B1312695A029004FA2BB /* PhotosNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC35B12F2695A029004FA2BB /* PhotosNewsCell.swift */; };
 		BC35B1322695A029004FA2BB /* PhotosNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC35B1302695A029004FA2BB /* PhotosNewsCell.xib */; };
+		BC5C38DA26C0BD2A009C843C /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5C38D926C0BD2A009C843C /* AsyncImageView.swift */; };
 		BC5D5A57265B825700D50529 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5D5A56265B825700D50529 /* Session.swift */; };
 		BC8C30BE265E175200C91E23 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C30BD265E175200C91E23 /* AuthViewController.swift */; };
 		BC8C30C1265F5A4400C91E23 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8C30C0265F5A4400C91E23 /* Network.swift */; };
@@ -102,6 +103,7 @@
 		BC35B12C26959D9D004FA2BB /* NewsEntryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsEntryCell.xib; sourceTree = "<group>"; };
 		BC35B12F2695A029004FA2BB /* PhotosNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosNewsCell.swift; sourceTree = "<group>"; };
 		BC35B1302695A029004FA2BB /* PhotosNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosNewsCell.xib; sourceTree = "<group>"; };
+		BC5C38D926C0BD2A009C843C /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		BC5D5A56265B825700D50529 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		BC8C30BD265E175200C91E23 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		BC8C30C0265F5A4400C91E23 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				BC8C30C0265F5A4400C91E23 /* Network.swift */,
 				BC35B0D72668791C004FA2BB /* RealmService.swift */,
 				BC31282F26A7F3B8003385A5 /* PhotoService.swift */,
+				BC5C38D926C0BD2A009C843C /* AsyncImageView.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				BCF8ED172695AE9900605B89 /* ControlsForNewsCell.swift in Sources */,
 				BC2F07EB26235EF700180B26 /* GroupTableViewController.swift in Sources */,
 				BC31282726A65929003385A5 /* AsyncOperation.swift in Sources */,
+				BC5C38DA26C0BD2A009C843C /* AsyncImageView.swift in Sources */,
 				BC8C30C1265F5A4400C91E23 /* Network.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
