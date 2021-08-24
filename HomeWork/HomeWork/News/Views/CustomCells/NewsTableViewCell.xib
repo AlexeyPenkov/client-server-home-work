@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="253" id="KGk-i7-Jjw" customClass="NewsTableViewCell" customModule="HomeWork" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="253"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="253"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A8I-X5-FEm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="253"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CI6-MK-6La">
+                                <rect key="frame" x="0.0" y="5" width="320" height="20.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBO-pt-kQE">
+                                <rect key="frame" x="0.0" y="232" width="150" height="21"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="vi8-aX-OmB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2J-wx-p4H">
+                                <rect key="frame" x="160" y="231" width="21" height="22"/>
+                                <state key="normal" image="heart" catalog="system"/>
+                                <connections>
+                                    <action selector="myLike" destination="KGk-i7-Jjw" eventType="touchUpInside" id="87p-hg-291"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S9m-Dh-aBZ">
+                                <rect key="frame" x="0.0" y="30.5" width="320" height="196.5"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CI6-MK-6La" firstAttribute="top" secondItem="A8I-X5-FEm" secondAttribute="top" constant="5" id="1aA-AF-Dyo"/>
+                            <constraint firstItem="S9m-Dh-aBZ" firstAttribute="top" secondItem="CI6-MK-6La" secondAttribute="bottom" constant="5" id="3cT-g7-tIJ"/>
+                            <constraint firstItem="gBO-pt-kQE" firstAttribute="leading" secondItem="A8I-X5-FEm" secondAttribute="leading" id="6fg-RN-kNE"/>
+                            <constraint firstItem="CI6-MK-6La" firstAttribute="leading" secondItem="A8I-X5-FEm" secondAttribute="leading" id="CjK-WL-b8Z"/>
+                            <constraint firstAttribute="trailing" secondItem="S9m-Dh-aBZ" secondAttribute="trailing" id="Fqt-mO-Y6P"/>
+                            <constraint firstItem="t2J-wx-p4H" firstAttribute="leading" secondItem="gBO-pt-kQE" secondAttribute="trailing" constant="10" id="GGR-0u-Tgw"/>
+                            <constraint firstAttribute="trailing" secondItem="CI6-MK-6La" secondAttribute="trailing" id="NRd-Lm-ubv"/>
+                            <constraint firstAttribute="bottom" secondItem="t2J-wx-p4H" secondAttribute="bottom" id="SIT-TR-e8f"/>
+                            <constraint firstItem="S9m-Dh-aBZ" firstAttribute="leading" secondItem="A8I-X5-FEm" secondAttribute="leading" id="aiu-wE-qOt"/>
+                            <constraint firstItem="gBO-pt-kQE" firstAttribute="top" secondItem="S9m-Dh-aBZ" secondAttribute="bottom" constant="5" id="iJM-Ce-zLD"/>
+                            <constraint firstAttribute="bottom" secondItem="gBO-pt-kQE" secondAttribute="bottom" id="pDv-nf-Lth"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <constraints>
+                <constraint firstItem="njF-e1-oar" firstAttribute="bottom" secondItem="A8I-X5-FEm" secondAttribute="bottom" id="2bl-js-MmP"/>
+                <constraint firstItem="A8I-X5-FEm" firstAttribute="top" secondItem="njF-e1-oar" secondAttribute="top" id="8TA-Hs-OOc"/>
+                <constraint firstItem="njF-e1-oar" firstAttribute="trailing" secondItem="A8I-X5-FEm" secondAttribute="trailing" id="Adp-De-REO"/>
+                <constraint firstItem="A8I-X5-FEm" firstAttribute="leading" secondItem="njF-e1-oar" secondAttribute="leading" id="k2p-0L-aiR"/>
+            </constraints>
+            <connections>
+                <outlet property="autorLabel" destination="gBO-pt-kQE" id="Vd5-Am-FkX"/>
+                <outlet property="imageNew" destination="S9m-Dh-aBZ" id="HOS-eI-2z9"/>
+                <outlet property="likeButton" destination="t2J-wx-p4H" id="B8A-9v-pGc"/>
+                <outlet property="titleLabel" destination="CI6-MK-6La" id="uV7-om-O6f"/>
+            </connections>
+            <point key="canvasLocation" x="-4.3478260869565224" y="117.52232142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

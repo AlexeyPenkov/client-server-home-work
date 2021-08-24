@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "E`ventor-narkoman-ili-7-priznakov-togo-chto-tyi-podsel-200x200.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
